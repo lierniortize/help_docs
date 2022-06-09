@@ -9,7 +9,7 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 * `mkdocs build` - Build the documentation site.
 * `mkdocs -h` - Print help message and exit.
 
-### Deploy to github
+### Deploy to GithubPages
 
-* `mkdocs gh-deploy -c https://github.com/lierniortize/help_docs.git`
+* `mkdocs gh-deploy -r https://github.com/lierniortize/help_docs.git`
 

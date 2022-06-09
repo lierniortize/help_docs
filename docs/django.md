@@ -72,7 +72,13 @@ INSTALED_APPS = [
     ]
 ```
 
-### Modelos
+Podemos poner la aplicación en marcha con (el puerto no es necesario):
+
+```
+py manage.py runserver {port}
+```
+
+## MODELOS
 
 [Documentación modelos](https://docs.djangoproject.com/en/4.0/topics/db/models/)
 
@@ -241,8 +247,30 @@ en el archivo `urls.py`.
 
 #### Views para filtrar y agregar datos
 
-Nos podemos apoyar en DjangoREST para esto. Ejemplo de filtro y agragación (el ejemplo 
-no sigue el modelo de vehiculo y conductor de antes):
+Nos podemos apoyar en DjangoREST para esto. 
+
+```
+pip install djangorestframework
+pip install django-filter
+```
+
+```
+INSTALED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'core',
+    'rest_framework',
+    'django-filters'
+    ]
+```
+
+
+Ejemplo de filtro y agregación (el ejemplo 
+no sigue el modelo de vehículo y conductor de antes):
 
 ```
 class cajasListAPIView(ListAPIView):
