@@ -11,5 +11,5 @@ For full documentation visit [mkdocs.org](https://www.mkdocs.org).
 
 ### Deploy to github
 
-* `mkdocs gh-deploy -c`
+* `mkdocs gh-deploy -c https://github.com/lierniortize/help_docs.git`
 
