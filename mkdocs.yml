@@ -1,6 +1,6 @@
 site_name: Dokumentazioa
 nav:
-  - HASIERA: index.md
+  - INICIO: index.md
   - LINKS O INFORMACIÓN: links.md
   - STORAGE: storage.md
   - APACHE BEAM: beam.md
