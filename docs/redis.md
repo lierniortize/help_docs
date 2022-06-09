@@ -7,7 +7,7 @@
 
 ## BASIC DATA STRUCTURES
 
-### Keys and Expiration
+### KEYS AND EXPIRATION
 
 [Documentation](https://redis.io/commands#generic)
 
@@ -83,7 +83,7 @@ scan 1229 MATCH customer:1* => 1) 0
 Cuando aparece 0 significa que no hay nada más sobre lo que iterar.
 ...
 
-### Borrar llaves
+### BORRAR LLAVES
 
 ### `DEL`
 Para borrar una llave y el valor asociado a ella o desvincular su llave con el valor.
@@ -147,7 +147,7 @@ redis-py library
 ```
 pip install redis
 ```
-### Connect to redis:
+### CONNECT TO REDIS
 
 ```
 import os
@@ -182,7 +182,7 @@ def test_say_hello(redis_connection):
     assert value == "world"
 ```
 
-### Redis Clients
+### REDIS CLIENTS
 
 Gestiona conexiones, implementa el protocolo redis (RESP) y nos deja usar un lenguaje sencillo (GET, SET, INCR...).
 
@@ -192,7 +192,7 @@ Gestiona conexiones, implementa el protocolo redis (RESP) y nos deja usar un len
 
 Utilizaremos `redis-py` como nuestra librería cliente.
 
-#### Cómo conectarse a redis utilizando `redis-py`
+#### CÓMO CONECTARSE A REDIS UTILIZANDO `redis-py`
 
 ```
 import redis
@@ -210,7 +210,7 @@ def connection_examples():
     client.get("foo")
 ```
 
-#### Basic operations
+#### BASIC OPERATIONS
 
 Redys type > Python type:
 
@@ -413,7 +413,7 @@ res = client.search(q)
 
 ### QUERYING
 
-#### Finding exact string matches
+#### FIND EXACT STRING MATCH
 
 ## REDIS OM
 
@@ -428,7 +428,7 @@ res = client.search(q)
 EJEMPLO:
 Vamos a montar un refugio de animales y tenemos un csv con los siguientes campos: `name, species, age, weight, sex, fee, children, other_animals, description`.
 
-#### Creamos un Redis Model en OM:
+#### CREAMOS UN REDIS MODEL EN OM
 
 ```
 from typing import Text
@@ -454,7 +454,7 @@ Cada animal se guardará asociado a un valor (tal y como funciona redis, con cla
 
 Si quisieramos modelar algo con campos anidados (que no sea clave-valor como en este caso) podríamos utilizar el modelado JSON de redis. Ambos son modelos `pedantic` (una librería de validación de python) por lo que podemos añadir criterios adicionales (que un campo sea un email, que un int esté entre valores que especifiquemos...). 
 
-#### Cargar datos en redis
+#### CARGAR DATOS EN REDIS
 
 Creamos una base de datos en redis a partir de un CSV:
 
@@ -481,7 +481,7 @@ Con `Migrator.run()` activamos algo parecido a "un detector de cambios". Así to
 
 Podemos descargarnos [RedisInsight](https://redis.com/es/redis-enterprise/redisinsight/#insight-form) para interactuar con nuestra base de datos. Es una interfaz donde podemos ver y gestionar nuestros datos fácilmente. 
 
-#### Querys
+#### QUERYS
 
 ```
 from adoptable import Adoptable
@@ -543,7 +543,7 @@ En la última función nos basamos en redisearch para las búsquedas. Si queremo
 
 Vamos a manejar una base de datos con los siguientes campos: `firstName,lastName,salary,department,isAdmin`
 
-### Iniciar Redis en Windows
+### INICIAR REDIS EN WINDOWS
 
 Tres opciones:
 
@@ -644,7 +644,7 @@ py upload_employee.py
 
 Podemos verificar que de verdad se ha subido en RedisInsight
 
-#### Si queremos conectarnos con Redis Cloud
+#### SI QUEREMOS CONECTARNOS A REDIS CLOUD
 
 Ejecutamos en el cmd:
 ```
@@ -678,11 +678,11 @@ Migrator().run()
 
 ```
 
-### Queries
+### QUERYS
 
 Podemos hacerlo con redisOM o redisearch.
 
-#### Redisearch
+#### REDISEARCH
 
 Para Redisearch necesitamos definir un `client`.
 

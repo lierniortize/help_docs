@@ -26,7 +26,7 @@ myproject/
 ```
 
 
-### Crear aplicaciones en el proyecto
+### CREAR APLICACIONES PARA EL MODELO
 Primero hay que entender la diferencia entre proyecto y aplicación. Una aplicación siempre será parte de nuestro proyecto. El proyecto podrá tener varias aplicaciones. Por ejemplo el proyecto de una tienda online puede tener la aplicación de gestionar el panel de control, el del stock de almacén, el de los pagos... Y estas aplicaciones podrán ser reutilizadas en otros proyectos.
 
 Cada aplicación en Django consiste en un paquete de Python que se estructura de una cierta manera por convención. Para crear la primera app, colocarse en la carpeta donde está el archivo ´manage.py´ y ejecutar:
@@ -105,7 +105,7 @@ class Vehiculo(models.Model):
         verbose_name_plural = 'Vehiculos'
 ```
 
-#### Bases de datos relacionales
+### BASES DE DATOS RELACIONALES
 
 Si queremos relacionar tablas entre ellas utilizaremos `ForeignKey`.
 [ForeignKey_docs](https://docs.djangoproject.com/en/4.0/topics/db/examples/many_to_one/)
@@ -140,7 +140,7 @@ py manage.py migrate
 
 
 
-## Views and Urls
+## VIEWS Y URLS
 
 Cada `view` nos enseñará algo de la base de datos y será capaz de enviar estos datos como
 respuesta a un request del front. Hay diferentes tipos de views para ello (se explican más adelante).
@@ -196,7 +196,7 @@ def index(request):
 ```
 [Documentación de request response](https://docs.djangoproject.com/en/4.0/ref/request-response/)
 
-#### View para cargar una plantilla HTML
+#### VIEW PARA CARGAR PLANTILLA HTML
 
 Podremos crear documentos HTML y cargarlos mediante un `TemplateView`. Para ello colocaremos 
 los archivos necesarios para el HTML en estos directorios:
@@ -245,7 +245,7 @@ De esta forma cuando llamemos a la url `hostServer:port\core\vehiculos`, se nos 
 `html` vehiculos_page. En cambio, no podremos acceder al `indexView` porque no lo hemos especificado
 en el archivo `urls.py`.
 
-#### Views para filtrar y agregar datos
+#### VIEW PARA FILTRAR Y AGREGAR DATOS
 
 Nos podemos apoyar en DjangoREST para esto. 
 
@@ -300,7 +300,7 @@ Podemos hacer este tipo de peticiones a esta view:
 Esta petición nos devolverá un JSON donde por nos sumará la cantidad de cajas de tipo 3 
 del 28 de abril o 29 de abril.
 
-### Carga de datos a heroku
+### CARGA DE DATOS EN HEROKU
 
 Primero hay que especificarle a Django que queremos trabajar con una base de datos de Heroku.
 
@@ -349,7 +349,7 @@ Conductor.objects.bulk_create(l_conductores)
 ```
 
 
-## Django admin
+## DJANGO ADMIN
 
 ```
 python manage.py createsuperuser
@@ -375,7 +375,7 @@ admin.site.register(Vehiculo)
 
 Ahora en [http://127.0.0.1:8000/admin](http://127.0.0.1:8000/admin) ya podremos acceder y modificar campos.
 
-## Interacción con el front (javascript)
+## INTERACCIÓN CON EL FRONT (JAVASCRIPT)
 
 Para hacer peticiones a Django tenemos que utilizar URL-s. Ejemplo:
 

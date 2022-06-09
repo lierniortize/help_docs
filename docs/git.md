@@ -1,7 +1,7 @@
 
 # GIT
 
-## Posibles errores
+## ERRORES POSIBLES
  
 
 * `the tip of your current branch is behind its remote counterpart`
