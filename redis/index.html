@@ -55,7 +55,11 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
+                    <li class="toctree-l1"><a class="" href="../airflow.md-">AIRFLOW</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../GA/">ALGORITMO GENETICO</a>
                     </li>
                 </ul>
                 <ul>
@@ -63,11 +67,7 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../airflow/">AIRFLOW</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
                     </li>
                 </ul>
                 <ul>
@@ -75,11 +75,19 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
                     </li>
                 </ul>
                 <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../prophet/">PROPHET</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
                     </li>
                 </ul>
                 <ul class="current">
@@ -87,7 +95,7 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#basic-data-structures">BASIC DATA STRUCTURES</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#keys-and-expiration">Keys and Expiration</a>
+    <li class="toctree-l3"><a class="reference internal" href="#keys-and-expiration">KEYS AND EXPIRATION</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#set">SET</a>
     </li>
@@ -95,7 +103,7 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#keys-and-scan">KEYS and SCAN</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#borrar-llaves">Borrar llaves</a>
+    <li class="toctree-l3"><a class="reference internal" href="#borrar-llaves">BORRAR LLAVES</a>
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#del">DEL</a>
     </li>
@@ -113,13 +121,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#python">PYTHON</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#connect-to-redis">Connect to redis:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#connect-to-redis">CONNECT TO REDIS</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#redis-clients">Redis Clients</a>
+    <li class="toctree-l3"><a class="reference internal" href="#redis-clients">REDIS CLIENTS</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#como-conectarse-a-redis-utilizando-redis-py">Cómo conectarse a redis utilizando redis-py</a>
+    <li class="toctree-l4"><a class="reference internal" href="#como-conectarse-a-redis-utilizando-redis-py">CÓMO CONECTARSE A REDIS UTILIZANDO redis-py</a>
     </li>
-    <li class="toctree-l4"><a class="reference internal" href="#basic-operations">Basic operations</a>
+    <li class="toctree-l4"><a class="reference internal" href="#basic-operations">BASIC OPERATIONS</a>
     </li>
         </ul>
     </li>
@@ -131,7 +139,7 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#querying">QUERYING</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#finding-exact-string-matches">Finding exact string matches</a>
+    <li class="toctree-l4"><a class="reference internal" href="#find-exact-string-match">FIND EXACT STRING MATCH</a>
     </li>
         </ul>
     </li>
@@ -139,17 +147,17 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#redis-om">REDIS OM</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#creamos-un-redis-model-en-om">Creamos un Redis Model en OM:</a>
+    <li class="toctree-l3"><a class="reference internal" href="#creamos-un-redis-model-en-om">CREAMOS UN REDIS MODEL EN OM</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#cargar-datos-en-redis">Cargar datos en redis</a>
+    <li class="toctree-l3"><a class="reference internal" href="#cargar-datos-en-redis">CARGAR DATOS EN REDIS</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#querys">Querys</a>
+    <li class="toctree-l3"><a class="reference internal" href="#querys">QUERYS</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#redis_om-y-redisearch">REDIS_OM y REDISEARCH</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#iniciar-redis-en-windows">Iniciar Redis en Windows</a>
+    <li class="toctree-l3"><a class="reference internal" href="#iniciar-redis-en-windows">INICIAR REDIS EN WINDOWS</a>
         <ul>
     <li class="toctree-l4"><a class="reference internal" href="#redisinsight">RedisInsight</a>
     </li>
@@ -159,13 +167,13 @@
     </li>
     <li class="toctree-l3"><a class="reference internal" href="#cargar-datos-en-redis_1">Cargar datos en redis</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#si-queremos-conectarnos-con-redis-cloud">Si queremos conectarnos con Redis Cloud</a>
+    <li class="toctree-l4"><a class="reference internal" href="#si-queremos-conectarnos-a-redis-cloud">SI QUEREMOS CONECTARNOS A REDIS CLOUD</a>
     </li>
         </ul>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#queries">Queries</a>
+    <li class="toctree-l3"><a class="reference internal" href="#querys_1">QUERYS</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#redisearch_1">Redisearch</a>
+    <li class="toctree-l4"><a class="reference internal" href="#redisearch_1">REDISEARCH</a>
     </li>
     <li class="toctree-l4"><a class="reference internal" href="#ejemplos">EJEMPLOS</a>
     </li>
@@ -177,23 +185,15 @@
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../GA/">ALGORITMO GENETICO</a>
-                    </li>
-                </ul>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
-                    </li>
-                </ul>
-                <ul>
                     <li class="toctree-l1"><a class="reference internal" href="../simpy/">SIMPY</a>
                     </li>
                 </ul>
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
                     </li>
                 </ul>
       </div>
@@ -233,7 +233,7 @@
 <p><a href="https://redis-py.readthedocs.io/en/stable/">redis-py</a></p>
 <p><a href="Pruebak iteko">https://try.redis.io/</a></p>
 <h2 id="basic-data-structures">BASIC DATA STRUCTURES</h2>
-<h3 id="keys-and-expiration">Keys and Expiration</h3>
+<h3 id="keys-and-expiration">KEYS AND EXPIRATION</h3>
 <p><a href="https://redis.io/commands#generic">Documentation</a></p>
 <p>Keys are the primary way to access data values. Hay 16 databases, por defecto siempre se utilizará database0. </p>
 <p>EJEMPLO (por convención, pero se puede hacer de otra forma):</p>
@@ -286,7 +286,7 @@ scan 1229 MATCH customer:1* =&gt; 1) 0
 </code></pre>
 <p>Cuando aparece 0 significa que no hay nada más sobre lo que iterar.
 ...</p>
-<h3 id="borrar-llaves">Borrar llaves</h3>
+<h3 id="borrar-llaves">BORRAR LLAVES</h3>
 <h3 id="del"><code>DEL</code></h3>
 <p>Para borrar una llave y el valor asociado a ella o desvincular su llave con el valor.</p>
 <pre><code>DEL key[key...]
@@ -325,7 +325,7 @@ EXPIRE resource:lock 120
 <p>redis-py library</p>
 <pre><code>pip install redis
 </code></pre>
-<h3 id="connect-to-redis">Connect to redis:</h3>
+<h3 id="connect-to-redis">CONNECT TO REDIS</h3>
 <pre><code>import os
 
 import pytest
@@ -357,12 +357,12 @@ def test_say_hello(redis_connection):
     assert result is True
     assert value == &quot;world&quot;
 </code></pre>
-<h3 id="redis-clients">Redis Clients</h3>
+<h3 id="redis-clients">REDIS CLIENTS</h3>
 <p>Gestiona conexiones, implementa el protocolo redis (RESP) y nos deja usar un lenguaje sencillo (GET, SET, INCR...).</p>
 <p><a href="https://walrus.readthedocs.io/en/latest/">Walrus</a></p>
 <p><a href="https://redis-py.readthedocs.io/en/stable/">redis-py</a></p>
 <p>Utilizaremos <code>redis-py</code> como nuestra librería cliente.</p>
-<h4 id="como-conectarse-a-redis-utilizando-redis-py">Cómo conectarse a redis utilizando <code>redis-py</code></h4>
+<h4 id="como-conectarse-a-redis-utilizando-redis-py">CÓMO CONECTARSE A REDIS UTILIZANDO <code>redis-py</code></h4>
 <pre><code>import redis
 from redis.sentinel import Sentinel
 from rediscluster import RedisCluster
@@ -377,7 +377,7 @@ def connection_examples():
     client.set(&quot;foo&quot;, &quot;bar&quot;)
     client.get(&quot;foo&quot;)
 </code></pre>
-<h4 id="basic-operations">Basic operations</h4>
+<h4 id="basic-operations">BASIC OPERATIONS</h4>
 <p>Redys type &gt; Python type:</p>
 <ul>
 <li>String &gt; bytes or string</li>
@@ -550,7 +550,7 @@ q = Query(&quot;search engine&quot;).verbatim().no_content().paging(0,5)
 res = client.search(q)
 </code></pre>
 <h3 id="querying">QUERYING</h3>
-<h4 id="finding-exact-string-matches">Finding exact string matches</h4>
+<h4 id="find-exact-string-match">FIND EXACT STRING MATCH</h4>
 <h2 id="redis-om">REDIS OM</h2>
 <p><a href="https://github.com/redis/redis-om-python">GitHub</a></p>
 <p><a href="https://www.youtube.com/watch?v=DFNKmbGKa5w">Yotube tutorial</a></p>
@@ -558,7 +558,7 @@ res = client.search(q)
 <p><a href="https://university.redis.com/courses/ru203/">Curso de redis</a></p>
 <p>EJEMPLO:
 Vamos a montar un refugio de animales y tenemos un csv con los siguientes campos: <code>name, species, age, weight, sex, fee, children, other_animals, description</code>.</p>
-<h4 id="creamos-un-redis-model-en-om">Creamos un Redis Model en OM:</h4>
+<h4 id="creamos-un-redis-model-en-om">CREAMOS UN REDIS MODEL EN OM</h4>
 <pre><code>from typing import Text
 from redis_om import (Field, HashModel)
 
@@ -577,7 +577,7 @@ class Adoptable (HashModel):
 <p>Lo indexará con redisearch y creará un índice para mantenimiento y búsqueda. De esta forma, cuando creemos instancias, <code>client</code> gestionará esto volviendolo a guardar en redis.</p>
 <p>Cada animal se guardará asociado a un valor (tal y como funciona redis, con clave-valor), pero nosostros queremos ser capaces de hacer búsquedas dependiendo de algún campo (ej. queremos un perro que pese menos de 20kg). Reisearch nos ayudará en esto.</p>
 <p>Si quisieramos modelar algo con campos anidados (que no sea clave-valor como en este caso) podríamos utilizar el modelado JSON de redis. Ambos son modelos <code>pedantic</code> (una librería de validación de python) por lo que podemos añadir criterios adicionales (que un campo sea un email, que un int esté entre valores que especifiquemos...). </p>
-<h4 id="cargar-datos-en-redis">Cargar datos en redis</h4>
+<h4 id="cargar-datos-en-redis">CARGAR DATOS EN REDIS</h4>
 <p>Creamos una base de datos en redis a partir de un CSV:</p>
 <pre><code>import csv
 from adoptable import Adoptable
@@ -597,7 +597,7 @@ Migrator().run()
 <p>Con <code>pk</code> estamos creando claves que identifiquen a cada animal como único localmente antes de guardarlo en redis. </p>
 <p>Con <code>Migrator.run()</code> activamos algo parecido a "un detector de cambios". Así todo lo que hagamos estará registrado siempre. </p>
 <p>Podemos descargarnos <a href="https://redis.com/es/redis-enterprise/redisinsight/#insight-form">RedisInsight</a> para interactuar con nuestra base de datos. Es una interfaz donde podemos ver y gestionar nuestros datos fácilmente. </p>
-<h4 id="querys">Querys</h4>
+<h4 id="querys">QUERYS</h4>
 <pre><code>from adoptable import Adoptable
 
 def show_result(results):
@@ -644,7 +644,7 @@ show_results(find_by_name())
 <p><a href="https://www.youtube.com/watch?v=UhnEyMDWuyI">Youtube tutorial</a></p>
 <p><a href="https://university.redis.com/courses/ru203/">Curso de redis oficial</a></p>
 <p>Vamos a manejar una base de datos con los siguientes campos: <code>firstName,lastName,salary,department,isAdmin</code></p>
-<h3 id="iniciar-redis-en-windows">Iniciar Redis en Windows</h3>
+<h3 id="iniciar-redis-en-windows">INICIAR REDIS EN WINDOWS</h3>
 <p>Tres opciones:</p>
 <p>1) WSL DE LINUX</p>
 <p>2) CON DOCKER</p>
@@ -721,7 +721,7 @@ Migrator().run()
 <pre><code>py upload_employee.py
 </code></pre>
 <p>Podemos verificar que de verdad se ha subido en RedisInsight</p>
-<h4 id="si-queremos-conectarnos-con-redis-cloud">Si queremos conectarnos con Redis Cloud</h4>
+<h4 id="si-queremos-conectarnos-a-redis-cloud">SI QUEREMOS CONECTARNOS A REDIS CLOUD</h4>
 <p>Ejecutamos en el cmd:</p>
 <pre><code>set REDIS_OM_URL = redis://username:password@public-endpoint/dataset_name
 </code></pre>
@@ -749,9 +749,9 @@ with open('employe.csv') as csv_file:
 Migrator().run()
 
 </code></pre>
-<h3 id="queries">Queries</h3>
+<h3 id="querys_1">QUERYS</h3>
 <p>Podemos hacerlo con redisOM o redisearch.</p>
-<h4 id="redisearch_1">Redisearch</h4>
+<h4 id="redisearch_1">REDISEARCH</h4>
 <p>Para Redisearch necesitamos definir un <code>client</code>.</p>
 <pre><code>from redisearch import Client, IndexDefinition, TextField, NumericFieldTagField, GeoField
 
@@ -823,10 +823,10 @@ from redisearch.aggregation import AggregateRequest, Asc, Desc
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../sql/" class="btn btn-neutral float-right" title="SQL">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../simpy/" class="btn btn-neutral float-right" title="SIMPY">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../prophet/" class="btn btn-neutral" title="PROPHET"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../storage/" class="btn btn-neutral" title="STORAGE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -852,10 +852,10 @@ from redisearch.aggregation import AggregateRequest, Asc, Desc
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../prophet/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../storage/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../sql/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../simpy/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
