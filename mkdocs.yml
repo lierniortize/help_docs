@@ -2,21 +2,18 @@ site_name: Dokumentazioa
 nav:
   - INICIO: index.md
   - LINKS O INFORMACIÓN: links.md
-  - STORAGE: storage.md
+  - AIRFLOW: airflow.md-
+    - ALGORITMO GENETICO: GA.md
   - APACHE BEAM: beam.md
-  - PANDAS: pandas.md
-  - AIRFLOW: airflow.md
-  - DJANGO: django.md
   - BIGQUERY: bigquery.md
-  - PROPHET: prophet.md
-  - REDIS: redis.md
-  - SQL: sql.md
-  - ALGORITMO GENETICO: GA.md
-  - STRAPI: strapi.md
-  - SIMPY: simpy.md
+  - DJANGO: django.md
   - GIT: git.md
-
-  
-
+  - PANDAS: pandas.md
+  - PROPHET: prophet.md
+  - STORAGE: storage.md
+  - REDIS: redis.md
+  - SIMPY: simpy.md
+  - SQL: sql.md
+  - STRAPI: strapi.md
 
 theme: readthedocs
