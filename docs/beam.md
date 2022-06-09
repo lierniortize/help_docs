@@ -33,7 +33,7 @@ A PTransform represents a data processing operation, or a step, in your pipeline
 ### Proceso
 Con el código lo q hacemos es escribir el pipeline que luego se ejecutará en una máquina (en nuestro caso Cloud Dataflow). Tembién podríamos ejecutarlo en local si la cantidad de datos es pequeña.
 
-## Ejemplo de un pipeline
+## Ejemplo 1
 
 Tomará datos de una fuente (también podrían ser más), realizaremos transformaciones sobre esos datos, y los escribiremos. ETL (Extract, Transform, Load).
 
@@ -84,7 +84,7 @@ py main.py --entrada quijote.txt --salida salida.txt --runner DirectRunner
 ```
 
 
-## EJEMPLO PASADO POR ASIER
+## Ejemplo 2
 
 Ejemplo básico de un pipeline:
 

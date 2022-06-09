@@ -1,7 +1,7 @@
 # BIGQUERY
-[Bideo](https://es.coursera.org/lecture/data-lakes-data-warehouses-gcp-es/como-optimizar-con-particiones-y-agrupamiento-en-clusteres-7dOQL?redirectTo=%2Flearn%2Fdata-lakes-data-warehouses-gcp-es%3Faction%3Denroll)
+[Video](https://es.coursera.org/lecture/data-lakes-data-warehouses-gcp-es/como-optimizar-con-particiones-y-agrupamiento-en-clusteres-7dOQL?redirectTo=%2Flearn%2Fdata-lakes-data-warehouses-gcp-es%3Faction%3Denroll)
 
-[Doc](https://googleapis.dev/python/bigquery/latest/index.html)
+[Docs](https://googleapis.dev/python/bigquery/latest/index.html)
 
 ## Partitioning
 [https://cloud.google.com/bigquery/docs/partitioned-tables](https://cloud.google.com/bigquery/docs/partitioned-tables)

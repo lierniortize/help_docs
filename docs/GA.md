@@ -23,10 +23,14 @@
 [Link al ejemplo](https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35)
 
 Links de interés:
-[Link2](http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5)
-[Link3](https://gist.github.com/turbofart/3428880)
-[Link4](https://gist.github.com/NicolleLouis/d4f88d5bd566298d4279bcb69934f51d)
-[Link5](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
+
+* [Link2](http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5)
+
+* [Link3](https://gist.github.com/turbofart/3428880)
+
+* [Link4](https://gist.github.com/NicolleLouis/d4f88d5bd566298d4279bcb69934f51d)
+
+* [Link5](https://en.wikipedia.org/wiki/Travelling_salesman_problem)
 
 Se quiere buscar la ruta con menos distancia que pase por diferentes ciudades. Condiciones:
     

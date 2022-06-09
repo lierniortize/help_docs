@@ -55,7 +55,7 @@ Variables regresoras:
 
 * Bajada gasolineras
 * Recuperación gasolineras
-* Ciere Bilbao
+* Cierre Bilbao
 
 8) `delete_outliers`
 

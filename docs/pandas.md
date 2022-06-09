@@ -7,7 +7,7 @@
  pip install openpyxl
 ```
 
-## CÓDIGO INICIAL
+## CÓDIGO BÁSICO
 ```
 import pandas as pd
 
