@@ -1,0 +1,22 @@
+site_name: Dokumentazioa
+nav:
+  - HASIERA: index.md
+  - LINKS O INFORMACIÓN: links.md
+  - STORAGE: storage.md
+  - APACHE BEAM: beam.md
+  - PANDAS: pandas.md
+  - AIRFLOW: airflow.md
+  - DJANGO: django.md
+  - BIGQUERY: bigquery.md
+  - PROPHET: prophet.md
+  - REDIS: redis.md
+  - SQL: sql.md
+  - ALGORITMO GENETICO: GA.md
+  - STRAPI: strapi.md
+  - SIMPY: simpy.md
+  - GIT: git.md
+
+  
+
+
+theme: readthedocs
