@@ -77,11 +77,11 @@
         <ul>
     <li class="toctree-l3"><a class="reference internal" href="#crear-aplicaciones-en-el-proyecto">Crear aplicaciones en el proyecto</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#modelos">Modelos</a>
-        <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#bases-de-datos-relacionales">Bases de datos relacionales</a>
-    </li>
         </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modelos">MODELOS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#bases-de-datos-relacionales">Bases de datos relacionales</a>
     </li>
         </ul>
     </li>
@@ -228,7 +228,10 @@ django-admin startproject myproject
     'core'
     ]
 </code></pre>
-<h3 id="modelos">Modelos</h3>
+<p>Podemos poner la aplicación en marcha con (el puerto no es necesario):</p>
+<pre><code>py manage.py runserver {port}
+</code></pre>
+<h2 id="modelos">MODELOS</h2>
 <p><a href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Documentación modelos</a></p>
 <p>Tendremos que crear un modelo para cada tabla que queramos crear en la base de datos a la que
 estemos conectados (por defecto SQLite3). Este modelo nos especificará los campos que tendrá la tabla.</p>
@@ -358,8 +361,24 @@ class vehiculosView(TemplateView):
 <code>html</code> vehiculos_page. En cambio, no podremos acceder al <code>indexView</code> porque no lo hemos especificado
 en el archivo <code>urls.py</code>.</p>
 <h4 id="views-para-filtrar-y-agregar-datos">Views para filtrar y agregar datos</h4>
-<p>Nos podemos apoyar en DjangoREST para esto. Ejemplo de filtro y agragación (el ejemplo 
-no sigue el modelo de vehiculo y conductor de antes):</p>
+<p>Nos podemos apoyar en DjangoREST para esto. </p>
+<pre><code>pip install djangorestframework
+pip install django-filter
+</code></pre>
+<pre><code>INSTALED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'core',
+    'rest_framework',
+    'django-filters'
+    ]
+</code></pre>
+<p>Ejemplo de filtro y agregación (el ejemplo 
+no sigue el modelo de vehículo y conductor de antes):</p>
 <pre><code>class cajasListAPIView(ListAPIView):
     &quot;&quot;&quot;
     Filtrará las fechas y el tipo de caja 
