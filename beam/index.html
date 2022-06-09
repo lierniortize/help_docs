@@ -47,7 +47,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">INICIO</a>
                     </li>
                 </ul>
                 <ul>
@@ -75,9 +75,9 @@
     </li>
         </ul>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-de-un-pipeline">Ejemplo de un pipeline</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-1">Ejemplo 1</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-pasado-por-asier">EJEMPLO PASADO POR ASIER</a>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-2">Ejemplo 2</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#ejecutar-en-cloud">Ejecutar en cloud</a>
         <ul>
@@ -192,7 +192,7 @@ Soporta batch (los datos tienen un fin) y streaming (los datos están entrando c
 <p>A PTransform represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects.</p>
 <h3 id="proceso">Proceso</h3>
 <p>Con el código lo q hacemos es escribir el pipeline que luego se ejecutará en una máquina (en nuestro caso Cloud Dataflow). Tembién podríamos ejecutarlo en local si la cantidad de datos es pequeña.</p>
-<h2 id="ejemplo-de-un-pipeline">Ejemplo de un pipeline</h2>
+<h2 id="ejemplo-1">Ejemplo 1</h2>
 <p>Tomará datos de una fuente (también podrían ser más), realizaremos transformaciones sobre esos datos, y los escribiremos. ETL (Extract, Transform, Load).</p>
 <p>Tomaremos el Quijote lo leeremos, contaremos las palabras y mostraremos las 5 más repetidas.</p>
 <p><code>main.py:</code></p>
@@ -234,7 +234,7 @@ if __name__ == '__main__':
 <p>Ejecutar en local:</p>
 <pre><code>py main.py --entrada quijote.txt --salida salida.txt --runner DirectRunner 
 </code></pre>
-<h2 id="ejemplo-pasado-por-asier">EJEMPLO PASADO POR ASIER</h2>
+<h2 id="ejemplo-2">Ejemplo 2</h2>
 <p>Ejemplo básico de un pipeline:</p>
 <pre><code>import apache_beam as beam
 from apache_beam import Map

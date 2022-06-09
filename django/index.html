@@ -47,7 +47,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">INICIO</a>
                     </li>
                 </ul>
                 <ul>
@@ -73,31 +73,37 @@
                 <ul class="current">
                     <li class="toctree-l1 current"><a class="reference internal current" href="./">DJANGO</a>
     <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#la-primera-aplicacion-del-proyecto">La primera aplicación del proyecto</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#la-primera-view">La primera view</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#modelos">Modelos</a>
+    <li class="toctree-l2"><a class="reference internal" href="#iniciar">INICIAR</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#activando-modelos">Activando modelos</a>
+    <li class="toctree-l3"><a class="reference internal" href="#crear-aplicaciones-en-el-proyecto">Crear aplicaciones en el proyecto</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#modificar-bases-de-datos">Modificar bases de datos</a>
+    <li class="toctree-l3"><a class="reference internal" href="#modelos">Modelos</a>
         <ul>
-    <li class="toctree-l4"><a class="reference internal" href="#insertar-variable-en-base-de-datos">Insertar variable en base de datos</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#consultar-campos-de-esa-variable">Consultar campos de esa variable</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#cambiar-valor-de-un-campo">Cambiar valor de un campo</a>
-    </li>
-    <li class="toctree-l4"><a class="reference internal" href="#ver-toda-la-base-de-datos">Ver toda la base de datos</a>
+    <li class="toctree-l4"><a class="reference internal" href="#bases-de-datos-relacionales">Bases de datos relacionales</a>
     </li>
         </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#views-and-urls">Views and Urls</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#urls">URLS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#views">VIEWS</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#view-para-cargar-una-plantilla-html">View para cargar una plantilla HTML</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#views-para-filtrar-y-agregar-datos">Views para filtrar y agregar datos</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#carga-de-datos-a-heroku">Carga de datos a heroku</a>
     </li>
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#django-admin">Django admin</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a>
+    <li class="toctree-l2"><a class="reference internal" href="#interaccion-con-el-front-javascript">Interacción con el front (javascript)</a>
     </li>
     </ul>
                     </li>
@@ -168,48 +174,141 @@
             <div class="section">
               
                 <h1 id="django">DJANGO</h1>
+<p><a href="https://www.djangoproject.com/">Django web</a></p>
+<h2 id="iniciar">INICIAR</h2>
 <p><a href="https://docs.djangoproject.com/en/4.0/intro/tutorial01/">Tutorial</a></p>
-<pre><code>cd Documents\Pruebak\django
+<pre><code>cd &lt;directory where I want to create the project&gt;
 
-django-admin startproject mysite
+django-admin startproject myproject
 </code></pre>
-<p>Esto creará un subdirectorio llamado <code>mysite</code> con la siguiente estructura:</p>
-<pre><code>mysite/
+<p>Esto creará un subdirectorio llamado <code>myproject</code> con la siguiente estructura:</p>
+<pre><code>myproject/
     manage.py
-    mysite/
+    myproject/
         __init__.py
         settings.py
         urls.py
         asgi.py
         wsgi.py
 </code></pre>
-<p>Después podemos hacer la migración, para que las aplicaciones que están en <code>settings.py</code> puedan hacer uso de la base de datos (por defecto SQLite3).</p>
+<h3 id="crear-aplicaciones-en-el-proyecto">Crear aplicaciones en el proyecto</h3>
+<p>Primero hay que entender la diferencia entre proyecto y aplicación. Una aplicación siempre será parte de nuestro proyecto. El proyecto podrá tener varias aplicaciones. Por ejemplo el proyecto de una tienda online puede tener la aplicación de gestionar el panel de control, el del stock de almacén, el de los pagos... Y estas aplicaciones podrán ser reutilizadas en otros proyectos.</p>
+<p>Cada aplicación en Django consiste en un paquete de Python que se estructura de una cierta manera por convención. Para crear la primera app, colocarse en la carpeta donde está el archivo ´manage.py´ y ejecutar:</p>
+<p>Crearemos la aplicación llamada <code>core</code></p>
+<pre><code>py manage.py startapp core
+</code></pre>
+<p>Se creará la carpeta <code>core</code> de la aplicación con esta estructura:</p>
+<pre><code>| myproject/
+|     core/
+|          migrations/
+|             __init__.py
+|         __init__.py
+|         admin.py
+|        apps.py
+|         models.py
+|         tests.py
+|         views.py
+|     myproject/
+|         __init__.py
+|         settings.py
+|         urls.py
+|         asgi.py
+|         wsgi.py
+|     manage.py
+
+</code></pre>
+<p>Para decirle a Django que tenga en cuenta la aplicación tenemos que cambiar el archivo <code>myproject/settings.py</code>:</p>
+<pre><code>INSTALED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'core'
+    ]
+</code></pre>
+<h3 id="modelos">Modelos</h3>
+<p><a href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Documentación modelos</a></p>
+<p>Tendremos que crear un modelo para cada tabla que queramos crear en la base de datos a la que
+estemos conectados (por defecto SQLite3). Este modelo nos especificará los campos que tendrá la tabla.</p>
+<pre><code>from django.db import models
+from django.utils.translation import gettext_lazy as _
+
+class Vehiculo(models.Model):
+    TIPO_CHOICES = [
+        ('camion', 'Camión'),
+        ('coche', 'Coche'),
+        ('furgoneta', 'Furgoneta'),
+    ]
+    matricula = models.CharField(max_length=7, verbose_name=_('Matrícula'))
+    description = models.CharField(max_length=100, verbose_name=_('Descripción'))
+    precio = models.FloatField(verbose_name=_('Precio'))
+    tipo = models.CharField(max_length=30, verbose_name=_('Eleccion'), choices=TIPO_CHOICES)
+    class Meta:
+        ordering = ['pk']
+        verbose_name = 'Vehiculo'
+        verbose_name_plural = 'Vehiculos'
+</code></pre>
+<h4 id="bases-de-datos-relacionales">Bases de datos relacionales</h4>
+<p>Si queremos relacionar tablas entre ellas utilizaremos <code>ForeignKey</code>.
+<a href="https://docs.djangoproject.com/en/4.0/topics/db/examples/many_to_one/">ForeignKey_docs</a></p>
+<pre><code>class Conductor(models.Model):
+    nombre = models.CharField(max_length=100, verbose_name=_('Nombre'))
+    vehiculo = models.ForeignKey(Vehiculo, on_delete=models.PROTECT, verbose_name=_('Vehículo'), related_name=' ')
+    class Meta:
+        verbose_name = 'Conductor'
+        verbose_name_plural = 'Conductores'
+</code></pre>
+<p>Cada conductor tendrá un vehícuo asociado. Para acceder a los atributos del vehículo
+se utilizará <code>__</code> (doble barra baja). Ejemplo: <code>vehiculo__matricula</code></p>
+<p>Una vez creados los modelos tenedremos que hacer las migraciones para que la base de datos 
+sepa cómo son estos modelos. Primero crearemos los archivos de migración:</p>
+<pre><code>py manage.py makemigrations
+</code></pre>
+<p>Después Django leerá esos archivos de migración creados y hará la migración:</p>
 <pre><code>py manage.py migrate
 </code></pre>
-<p>Una vez realizado esto ya podemos ejecutar</p>
-<pre><code>py manage.py runserver {PORT}
-</code></pre>
-<p>Yendo a la dirección local dada veremos una pantalla de ¡Congratulations!</p>
-<p>Primero hay que entender la diferencia entre proyecto y aplicación. Una aplicación siempre será parte de nuestro proyecto. El proyecto podrá tener varias aplicaciones. Por ejemplo el proyecto de una tienda online puede tener la aplicación de gestionar el panel de control, el del stock de almacén, el de los pagos... Y estas aplicaciones podrán ser reutilizadas en otros proyectos.</p>
-<h2 id="la-primera-aplicacion-del-proyecto">La primera aplicación del proyecto</h2>
-<p>Cada aplicación en Django consiste en un apquete de Python que se estructura de una cierta manera por convención. Para crear la primera app, colocarse en la carpeta donde está el archivo ´manage.py´ y ejecutar:</p>
-<p>Crearemos la aplicación llamada <code>polls</code></p>
-<pre><code>py manage.py startapp polls
-</code></pre>
-<p>Se creará la carpeta <code>polls</code> de la aplicación con esta estructura:</p>
-<pre><code>polls/
-     migrations/
-        __init__.py
+<p>!!! warning "Warning." Cada vez que se modifica un modelo hay que hacer una migración. Si no están todos los archivos 
+<code>migration</code> Django no podrá realizar la migración.</p>
+<h2 id="views-and-urls">Views and Urls</h2>
+<p>Cada <code>view</code> nos enseñará algo de la base de datos y será capaz de enviar estos datos como
+respuesta a un request del front. Hay diferentes tipos de views para ello (se explican más adelante).
+Para hacer la petición a cada una de las views se utilizan las url-s. </p>
+<h3 id="urls">URLS</h3>
+<p>Para ello tenemos que configurar dos archivos:</p>
+<p><code>myproject/urls.py</code></p>
+<pre><code>from django.conf.urls import include
+from django.contrib import admin
+from django.urls import path
 
-    __init__.py
-    admin.py
-    apps.py
-    models.py
-    tests.py
-    views.py
+urlpatterns = [
+    path('core/', include('core.urls')),
+    path('admin/', admin.site.urls),
+]
 </code></pre>
-<h2 id="la-primera-view">La primera view</h2>
-<p>En <code>polls/views.py</code>:</p>
+<p>En este archivo se le especifica a Djago que mire en <code>core/urls.py</code> para ver qué urls tiene que utilizar
+para cada una de las views.</p>
+<p><code>core/urls.py</code></p>
+<pre><code>from django.urls import path
+from core.views import *
+
+app_name = 'core'
+
+&quot;&quot;&quot;
+Dentro de la aplicación ``core`` tendremos las siguientes URL-s. Algunas solamente sirven para mostrar la plantilla
+HTML y las otras son para obtener datos con el filtro deseado y mostrarlos.
+&quot;&quot;&quot;
+
+urlpatterns = [
+    path('conductores/', FlujosView.as_view(), name='conductores'),
+    path('vehiculos/', AlertasView.as_view(), name='vehiculos')
+]
+</code></pre>
+<p>Hace la relación entre las url-s de petición y la view encargada de dar respuesta a esta.</p>
+<h3 id="views">VIEWS</h3>
+<p>Este archivo estará en <code>core/views.py</code>.</p>
+<p>Hay diferentes tipos de views. Ejemplo:</p>
 <pre><code>from django.http import HttpResponse
 
 def index(request):
@@ -217,95 +316,113 @@ def index(request):
 
 </code></pre>
 <p><a href="https://docs.djangoproject.com/en/4.0/ref/request-response/">Documentación de request response</a></p>
-<p>En urls tenemos que hacer la conexión entre la página y nuestra función index.</p>
-<p>En <code>polls/urls.py</code>:</p>
-<pre><code>from django.urls import path
+<h4 id="view-para-cargar-una-plantilla-html">View para cargar una plantilla HTML</h4>
+<p>Podremos crear documentos HTML y cargarlos mediante un <code>TemplateView</code>. Para ello colocaremos 
+los archivos necesarios para el HTML en estos directorios:</p>
+<pre><code>| myproject/
+|     core/
+|         migrations/
+|            0001_initial.py
+|            0002_auto_20220609_1028.py
+|         static/
+|            core/
+|                css/
+|                img/
+|                js/
+|         templates/
+|            index.html
+|            vehiculos_page.html
+|         __init__.py
+|         admin.py
+|         apps.py
+|         models.py
+|         tests.py
+|         views.py
+|     myproject/
+|         __init__.py
+|         settings.py
+|         urls.py
+|         asgi.py
+|         wsgi.py
+|     manage.py 
 
-from . import views
+</code></pre>
+<p>Y ya podremos cargar las views:</p>
+<pre><code>class indexView(TemplateView):
+    template_name = 'core/index.html'
 
-urlpatterns = [
-    path('', views.index, name='index'),
-]
+class vehiculosView(TemplateView):
+    template_name = 'core/vehiculos_page.html'
 </code></pre>
-<p>En <code>mysite/urls.py</code>:</p>
-<pre><code>from django.contrib import admin
-from django.urls import include, path
+<p>De esta forma cuando llamemos a la url <code>hostServer:port\core\vehiculos</code>, se nos cargará el 
+<code>html</code> vehiculos_page. En cambio, no podremos acceder al <code>indexView</code> porque no lo hemos especificado
+en el archivo <code>urls.py</code>.</p>
+<h4 id="views-para-filtrar-y-agregar-datos">Views para filtrar y agregar datos</h4>
+<p>Nos podemos apoyar en DjangoREST para esto. Ejemplo de filtro y agragación (el ejemplo 
+no sigue el modelo de vehiculo y conductor de antes):</p>
+<pre><code>class cajasListAPIView(ListAPIView):
+    &quot;&quot;&quot;
+    Filtrará las fechas y el tipo de caja 
+    en cada caso y hará la agrupación para sumar cajas. 
+    &quot;&quot;&quot;
+    queryset = Link.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filter_fields = {
+        'dia': [&quot;in&quot;, &quot;exact&quot;],
+        'tipo_caja': [&quot;in&quot;,&quot;exact&quot;]
+    }
 
-urlpatterns = [
-    path('polls/', include('polls.urls')),
-    path('admin/', admin.site.urls),
-]
+    def get(self, request, **kwargs):
+        queryset = self.get_queryset()
+        filter_queryset = self.filter_queryset(queryset)
+        values = filter_queryset.values('dia','tipo_caja')\
+            .annotate(n_cajas=Sum('cajas'))
+        return Response(values)
 </code></pre>
-<p>Podemos crear un path diferente por cada vista que queramos. Es decir, podríamos crear una función nueva en <code>polls/views.py</code> y un nuevo path para ella en <code>polls/urls.py</code> y <code>mysite/urls.py</code>. </p>
-<h2 id="modelos">Modelos</h2>
-<p>La clase <code>model</code> creará tablas en nuestra base de datos y podremos modificarlos con los métodos de la clase <code>model</code>. No se puede crear un modelo que esté fuera de una aplicación.</p>
-<p>Crearemos dos modelos: Question y Choice.</p>
-<p>En <code>polls/models.py</code>:</p>
-<pre><code>from django.db import models
-
-
-class Question(models.Model):
-    question_text = models.CharField(max_length=200)
-    pub_date = models.DateTimeField('date published')
-
-
-class Choice(models.Model):
-    question = models.ForeignKey(Question, on_delete=models.CASCADE) #Each Choice is related to a single Question
-    choice_text = models.CharField(max_length=200)
-    votes = models.IntegerField(default=0)
+<p>Podemos hacer este tipo de peticiones a esta view:</p>
+<pre><code>`hostServer:port\core\cajas?dia__in=20220628,20220629&amp;tipo_caja=3`
 </code></pre>
-<p><a href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Documentación</a></p>
-<p>Cada clase será una tabla y cada field será un campo de esa tabla. </p>
-<p>Con este modelo Django es capaz de:</p>
-<ul>
-<li>Crear un 'database schema' para esta app</li>
-<li>Crear una API que deja a Python acceder a Question y Choice</li>
-</ul>
-<h3 id="activando-modelos">Activando modelos</h3>
-<p>Antes de empezar debemos decirle a nuestro proyecto que la app polls ha sido instalada. Para ello en <code>mysite/settings.py</code></p>
-<pre><code>INSTALLED_APPS = [
-    'polls.apps.PollsConfig',
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-]
-</code></pre>
-<p>Y hacer la migración:</p>
-<pre><code>py manage.py makemigrations {NOMBRE_APLICACIÓN}
-</code></pre>
-<p>Con <code>makemigrations</code> le estamos diciendo a Django que hemos hecho algún cambio en nuestro modelo.</p>
-<p>Pero después tenemos que ejecutar el SQL que corresponde con esa migración:</p>
-<pre><code>py manage.py sqlmigrate {NOMBRE_APLICACIÓN}{NUMERO QUE NOS HA DADO MAKEMIGRATIONS}
-</code></pre>
-<p>Por último tenemos que decirle que utilice ese código SQL para modificar las tablas en la base de datos. Creará un campo <code>id</code> en cada tabla, que la usará como clave primaria. </p>
-<pre><code>py manage.py migrate
-</code></pre>
-<h3 id="modificar-bases-de-datos">Modificar bases de datos</h3>
+<p>Esta petición nos devolverá un JSON donde por nos sumará la cantidad de cajas de tipo 3 
+del 28 de abril o 29 de abril.</p>
+<h3 id="carga-de-datos-a-heroku">Carga de datos a heroku</h3>
+<p>Primero hay que especificarle a Django que queremos trabajar con una base de datos de Heroku.</p>
+<p>...</p>
+<p>La carga se hará solo una vez de forma manual.</p>
 <pre><code>py manage.py shell
 </code></pre>
-<p>Una vez en shell:</p>
-<h5 id="insertar-variable-en-base-de-datos">Insertar variable en base de datos</h5>
-<pre><code>from django.utils import timezone
+<p>Una vez en shell ejecutamos el script destinado a cargar datos. La forma más facil de 
+subir datos es creando una lista con objetos del modelo que queramos cargar, y cargar 
+toda la lista a la vez. Por ejemplo, 
+si tenemos todos los conductores (modelo Conductor) en un excel, primero tendremos
+que subir los vehículos (porque los conductores tienen un vehiculo como atributo) y después 
+coger el atributo que queramos para el conductor:</p>
+<pre><code>import pandas as pd
+from core.models import Conductor, Vehiculo
 
+df_vehiculos = pd.read_excel(&quot;vehiculos.xlsx&quot;)
+df_conductores = pd.read_excel(&quot;conductores.xlsx&quot;)
 
-q = Question(question_text='¿Qué hay?', pub_date=timezone.now())
-q.save()
-</code></pre>
-<h5 id="consultar-campos-de-esa-variable">Consultar campos de esa variable</h5>
-<pre><code>q.id  # 1
-q.question_text  #'Qué hay?'
-q.pub_date  #datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=&lt;UTC&gt;)
+# Creamos una lista llena de objetos ``Vehiculo``
+l_vehiculos = [Vehiculo(
+    matricula=row['matricula'],
+    description=row['description'],
+    precio=row['precio'],
+    tipo=row['tipo'],
+    )
+    for i, row in df_conductores.iterrows()]
 
-</code></pre>
-<h5 id="cambiar-valor-de-un-campo">Cambiar valor de un campo</h5>
-<pre><code>q.question_text = '¿Otra pregunta?'
-q.save()
-</code></pre>
-<h5 id="ver-toda-la-base-de-datos">Ver toda la base de datos</h5>
-<pre><code>Question.objects.all()  #&lt;QuerySet [&lt;Question: Question object (1)&gt;]&gt;
+# Subimos la lista a Heroku
+Vehiculo.objects.bulk_create(l_vehiculos)
+
+# Creamos una lista llena de objetos ``Conductor``
+l_conductores = [Conductor(
+    nombre=row['nombre'],
+    matricula=Nodo.objects.get(matricula=row['matricula']),
+    )
+    for i, row in df_conductores.iterrows()]
+
+# Subimos la lista a Heroku
+Conductor.objects.bulk_create(l_conductores)
 </code></pre>
 <h2 id="django-admin">Django admin</h2>
 <pre><code>python manage.py createsuperuser
@@ -316,16 +433,36 @@ Password: **********
 Password (again): *********
 Superuser created successfully.
 </code></pre>
-<p>En <code>polls.admin.py</code></p>
+<p>En <code>core.admin.py</code></p>
 <pre><code>from django.contrib import admin
 
-from .models import Question
+from .models import Vehiculo
 
-admin.site.register(Question)
+admin.site.register(Vehiculo)
 </code></pre>
 <p>Ahora en <a href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a> ya podremos acceder y modificar campos.</p>
-<h2 id="templates">Templates</h2>
-<p>Nuestros documentos <code>html</code> por convención deberían estar en el directorio <code>miAplicacion/templates/miAplicacion</code></p>
+<h2 id="interaccion-con-el-front-javascript">Interacción con el front (javascript)</h2>
+<p>Para hacer peticiones a Django tenemos que utilizar URL-s. Ejemplo:</p>
+<pre><code>var url = &quot;vehiculos/&quot;
+var response = await fetch(url)
+response = await answer.json()
+</code></pre>
+<p>Esto nos devolverá la respuesta en formato JSON. Si quisieramos hacer algún cambio
+en alguno de los atributos podemos iterar sobre ese JSON. Por ejemplo queremos rebajar todos
+los vehículos un 20%:</p>
+<pre><code>var vehiculos = response.map(function(vehc){
+    vehc.precio = vehc.precio * 0.8
+});
+</code></pre>
+<p>También podremos hacer llamadas simultáneas a diferentes url-s:</p>
+<pre><code>var urls = ['vehiculos\', 'conductores\'];
+var promises = urls.map(url =&gt; fetch(url).then(y =&gt; y.text()));
+
+Promise.all(promises).then(response =&gt; {
+    console.log(response)
+});
+</code></pre>
+<p>Ese response nos enseñará las diferentes respuestas de Django.</p>
               
             </div>
           </div>

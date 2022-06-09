@@ -47,7 +47,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">INICIO</a>
                     </li>
                 </ul>
                 <ul>
@@ -99,7 +99,9 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#quickstart">Quickstart</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#create-a-new-collection-type">Create a new collection type</a>
+    <li class="toctree-l2"><a class="reference internal" href="#collection-type">Collection type</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#acceder-a-los-datos-de-la-bd">Acceder a los datos de la BD</a>
     </li>
     </ul>
                     </li>
@@ -148,12 +150,46 @@
                 <h1 id="strapi">STRAPI</h1>
 <pre><code>npx create-strapi-app strapi-api
 </code></pre>
+<p>Es una herramienta para la creación de APIs que permitirá al usuario-administradores
+cambiar las bases de datos desde una interfaz, sin tener que cambiar nada en el código.
+Se contempla como opción de sustitución a Django, pero solo será posible en proyectos
+simples sin muchos datos.</p>
 <h2 id="quickstart">Quickstart</h2>
 <pre><code>npx create-strapi-app@latest my-project --quickstart
 </code></pre>
+<p>Una vez creado la app, nos ubicamos dentro de la carpeta que se nos ha creado con la 
+creación del proyecto y ejecutamos el siguiente comando para poner el servidor en marcha:</p>
+<pre><code>npm run develop
+</code></pre>
 <p>Panel admin en: <a href="http://localhost:1337/admin/">http://localhost:1337/admin/</a></p>
-<h2 id="create-a-new-collection-type">Create a new collection type</h2>
-<p>Acceder a <a href="http://localhost:1337/admin/plugins/content-type-builder/content-types/plugin::users-permissions.user">Content-type Builder</a></p>
+<h2 id="collection-type">Collection type</h2>
+<p>Acceder a <a href="http://localhost:1337/admin/plugins/content-type-builder/content-types/plugin::users-permissions.user">Content-type Builder</a>
+Desde ahí podremos crear nuevos "modelos" con sus atributos. Una vez creado el modelo, podemos
+añadir los atributos deseados y crear tantos objetos de ese modelo como queramos.</p>
+<h2 id="acceder-a-los-datos-de-la-bd">Acceder a los datos de la BD</h2>
+<p>Los datos estarán visibles en:</p>
+<pre><code>http://localhost:1337/api/modelo_name
+</code></pre>
+<p>Sin embargo strapi hace un filtro por defecto al obtener los datos. Si queremos acceder a 
+todos tenemos que acceder por:</p>
+<pre><code>http://localhost:1337/api/modelo_name?populate=*
+</code></pre>
+<p>javascript:</p>
+<pre><code>function getModelo(){
+    fetch('http://localhost:1337/api/modelo?populate=*')
+      .then(response =&gt; response.json())
+      .then(data =&gt;
+      data.data.forEach(readModelo))    
+}
+
+function readModelo(element){
+        var api_url = 'http://localhost:1337'
+        var modelo = element.attributes
+        var modelo_atrb1 = modelo.atrb1
+        var modelo_atrb2 = modelo.atrb2
+        var modelo_img_url = modelo.img_atrb.data.attributes.url
+        modelo_img_url = api_url  + img_url
+</code></pre>
               
             </div>
           </div>

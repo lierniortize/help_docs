@@ -47,7 +47,7 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
                 <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    <li class="toctree-l1"><a class="reference internal" href="..">INICIO</a>
                     </li>
                 </ul>
                 <ul>
@@ -73,31 +73,13 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#aplicaciones">APLICACIONES</a>
     </li>
-    <li class="toctree-l2"><a class="reference internal" href="#ejemplo">EJEMPLO</a>
-    </li>
     <li class="toctree-l2"><a class="reference internal" href="#operators">OPERATORS</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo">EJEMPLO</a>
         <ul>
-    <li class="toctree-l3"><a class="reference internal" href="#googlecloudstorageobjectsensor">GoogleCloudStorageObjectSensor</a>
+    <li class="toctree-l3"><a class="reference internal" href="#ejemplo-en-pseudocodigo">EJEMPLO EN PSEUDOCÓDIGO</a>
     </li>
-    <li class="toctree-l3"><a class="reference internal" href="#gcstobigqueryoperator">GCSToBigQueryOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bigqueryinsertjoboperator">BigQueryInsertJobOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pythonvirtualenvoperator">PythonVirtualenvOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#bashoperator">BashOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#pythonoperator">PythonOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#emailoperator">EmailOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#simplehttpoperator">SimpleHttpOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#mysqloperator">MySqlOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#dockeroperator">DockerOperator</a>
-    </li>
-    <li class="toctree-l3"><a class="reference internal" href="#sensores">Sensores</a>
+    <li class="toctree-l3"><a class="reference internal" href="#ejemplo-en-githubverlar">EJEMPLO EN GITHUB/VERLAR</a>
     </li>
         </ul>
     </li>
@@ -173,7 +155,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="apahce-airflow">APAHCE AIRFLOW</h1>
+                <h1 id="apache-airflow">APACHE AIRFLOW</h1>
 <p>Es una herramienta para crear, planificar y monitorizar fluos de trabajo (DAGs)</p>
 <p>Las secuencias de tareas pueden ser ejecutadas por planificación (el desarrollador especificado cuándo se ejecutara, puntual o periodicamente) o evento (ha encontrado nuevos archivo o nuevos datos, ha acabado otro proceso...)</p>
 <p>Un DAG (Gráfico Aciclico Dirigido) es un esquema que nos dice que se tiene que ejecutar cada vez. </p>
@@ -204,10 +186,70 @@
 <p>Data infrastructure maintenance</p>
 </li>
 </ul>
+<h2 id="operators">OPERATORS</h2>
+<p>Para llevar a cabo cada actividad tendremos un operador diferente. Si no existe la actividad que
+queramos siempre podremos crear nuestra propia función. Los operators son los encargados de llevar a 
+cabo estas actividades. A continuación se explica para qué son algunos de ellos.</p>
+<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/operators/bigquery/index.html">Link to all the operators</a></p>
+<ul>
+<li>
+<p><code>GoogleCloudStorageObjectSensor</code></p>
+<p>Sensor para ver si un fichero existe.
+<a href="https://airflow.apache.org/docs/apache-airflow/1.10.3/_api/airflow/contrib/sensors/gcs_sensor/index.html">Documentación</a></p>
+</li>
+<li>
+<p><code>GCSToBigQueryOperator</code></p>
+</li>
+</ul>
+<p>Para pasar a BigQuery. <a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/transfers/gcs_to_bigquery/index.html">Documentación</a></p>
+<pre><code>* ```write_disposition``` [Doc](https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.job.WriteDisposition.html)
+
+* ```time_partitioning``` [Doc](https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.table.TimePartitioning.html)
+</code></pre>
+<ul>
+<li>
+<p><code>BigQueryInsertJobOperator</code></p>
+<p><a href="https://registry.astronomer.io/providers/google/modules/bigqueryinsertjoboperator">Doc</a></p>
+</li>
+<li>
+<p><code>PythonVirtualenvOperator</code></p>
+<p>Para enviar emails.
+<a href="https://registry.astronomer.io/providers/apache-airflow/modules/pythonvirtualenvoperator">Doc</a></p>
+</li>
+<li>
+<p><code>BashOperator</code></p>
+</li>
+</ul>
+<p>Enviar comando</p>
+<ul>
+<li><code>PythonOperator</code></li>
+</ul>
+<p>Para escribir código python y usar sus módulos (p.e. NumPy, Pandas)</p>
+<ul>
+<li>
+<p><code>EmailOperator</code></p>
+<p>Enviar emails</p>
+</li>
+<li>
+<p><code>SimpleHttpOperator</code></p>
+<p>Post, Get... </p>
+</li>
+<li>
+<p><code>MySqlOperator</code></p>
+</li>
+<li>
+<p><code>DockerOperator</code></p>
+</li>
+<li>
+<p><code>Sensores</code>
+Si tengo un DAG que no se tiene que ejecutar por tiempo sino por evento, el sensor estará escuchando, y entonces es cuando se ejecutará el DAG.</p>
+</li>
+</ul>
 <h2 id="ejemplo">EJEMPLO</h2>
+<p>Se programará el DAG que lleve a cabo lo siguiente:</p>
 <p>Escuchar a que nos llegue el archivo (evento) &gt; query &gt; cargar un archivo propio &gt; computar (aplicar modelos...) &gt; subir data &gt; enviar correo de confirmación</p>
 <p>Descargar data &gt; Enviar esos datos a otro sitio para ser procesados &gt; Monitorear cuando el proceso se complete o durante &gt; Obtener resultado y generar un informe &gt; Enviar el informe por email</p>
-<p>EJEMPLO EN CÓDIGO:</p>
+<h3 id="ejemplo-en-pseudocodigo">EJEMPLO EN PSEUDOCÓDIGO</h3>
 <pre><code>imports
 
 options
@@ -226,163 +268,23 @@ En qué orden queremos que se ejecuten los tasks.
 <p>Options for schedule interval:</p>
 <pre><code>None, @once, @hourly, @daily, @weekly, @monthly, @yearly
 </code></pre>
-<p>EJEMPLO:</p>
-<pre><code># -*- coding: utf-8 -*-
-
-from airflow import models
-from airflow.providers.google.cloud.sensors.gcs import GCSObjectExistenceSensor
-from airflow.operators.python import PythonVirtualenvOperator
-from airflow.providers.google.cloud.operators.dataflow import DataflowCreatePythonJobOperator
-from airflow.providers.google.cloud.operators.bigquery import BigQueryExecuteQueryOperator
-from datetime import datetime, timedelta
-from python_functions.generic_functions.ms_teams_webhook.main import failure_ms_teams
-import pendulum
-import os
-
-from python_functions.dag_afect_mrg import afect_mrg_redis
-
-# GCS OPTIONS
-GCS_INPUT = 'gs://apro-verlar/incoming/'
-GCS_FILE_NAME = 'CONSULTA_GBI_AFECTACION_MARGEN_{date}.csv.gz'
-GCS_BUCKET = 'apro-verlar'
-GCS_FILE_DIR = 'incoming/CONSULTA_GBI_AFECTACION_MARGEN_{date}.csv.gz'
-
-# BIGQUERY OPTIONS
-TMP_PROJECT_ID = 'liquid-alloy-178307'
-TMP_TABLE_ID = 'TMP.afectacionMargen'
-MAES_LOC = 'batu-203805.GBI.maestroLocalizaciones'
-FINAL_TABLE = 'batu-203805.GBI.afectacionMargen'
-# TODO
-TABLE_VENTAS = 'batu-203805.GBI.ventasDesglosadasLocalizacionSeccion'
-
-# DATAFLOW OPTIONS
-APACHE_BEAM_PY_FILE = '/home/airflow/gcs/dags/apache_beam_code/dag_afect_mrg/gcs_to_bq.py'
-DATAFLOW_PROJECT = 'liquid-alloy-178307'
-JOB_NAME = 'afectacion-margen-{date}'
-STAGING_NAME = 'gs://apro-verlar/beam-test01/staging'
-TEMP_NAME = 'gs://apro-verlar/beam-test01/temp'
-REGION = 'us-central1'
-NETWORK = 'default'
-SUBNETWORK = 'regions/us-central1/subnetworks/default'
-RUNNER = 'DataflowRunner'
-
-START_DATE = datetime(year=2021, month=5, day=20, hour=6, minute=0, tzinfo=pendulum.timezone('Europe/Madrid'))
-
-default_args = {
-    'owner': 'Versia Procesos Operativos',
-    'start_date': START_DATE,
-    'retries': 2,
-    'retry_delay': timedelta(minutes=15),
-    'email': eval(os.environ['SEND_EMAIL_TO']),
-    'email_on_failure': True,
-    'email_on_retry': False,
-    'on_failure_callback': failure_ms_teams(author='Asier')
-}
-
-
-with models.DAG(&quot;dag_afect_mrg&quot;,
-                default_args=default_args,
-                schedule_interval='0 7 * * *') as dag:
-
-    # Load requirements for PythonVirtualenvOperator
-    with open('/home/airflow/gcs/dags/python_functions/dag_afect_mrg/requirements.txt', 'r') as fd:
-        requirements = fd.read()
-        requirements = requirements.split('\n')
-
-    sensor_task = GCSObjectExistenceSensor(
-        task_id=&quot;sensor_task&quot;,
-        bucket=GCS_BUCKET,
-        google_cloud_conn_id='google_cloud_default',
-        object=GCS_FILE_DIR.format(date=(datetime.now() - timedelta(days=1)).strftime('%Y%m%d')),
-    )
-
-    gcs_bq = DataflowCreatePythonJobOperator(
-        task_id=&quot;GCS_to_BQ&quot;,
-        py_file=APACHE_BEAM_PY_FILE,
-        options={
-            'project': TMP_PROJECT_ID,
-            'staging_location': STAGING_NAME,
-            'temp_location': TEMP_NAME,
-            'region': REGION,
-            'network': NETWORK,
-            'subnetwork': SUBNETWORK,
-            'job_name': JOB_NAME.format(date=datetime.now().strftime('%Y%m%d')),
-            'input': GCS_INPUT + GCS_FILE_NAME,
-            'output': TMP_TABLE_ID,
-            'runner': RUNNER
-        },
-        job_name=JOB_NAME.format(date=datetime.now().strftime('%Y%m%d')),
-    )
-
-    update_table = BigQueryExecuteQueryOperator(
-        task_id='Update_data',
-        sql='queries/dag_afect_mrg/update_data.sql',
-        allow_large_results=True,
-        use_legacy_sql=False,
-    )
-
-    ventas_loaded = GCSObjectExistenceSensor(
-        task_id=&quot;ventas_loaded&quot;,
-        bucket='ticket-test',
-        google_cloud_conn_id='google_cloud_default',
-        object=f'airflow_flags/tmp_airflow_dag_ventas_{datetime.now().strftime(&quot;%Y%m%d&quot;)}.txt',
-        timeout=60 * 60 * 12,
-    )
-
-    afect_mrg_redis = PythonVirtualenvOperator(
-        task_id=&quot;Afect_Mrg_Redis&quot;,
-        python_callable=afect_mrg_redis.run,
-        requirements=requirements,
-        op_kwargs={
-            'final_table': FINAL_TABLE,
-            'maes_loc': MAES_LOC,
-            'table_ventas': TABLE_VENTAS
-        },
-        system_site_packages=False,
-    )
-
-    delete_tmp = BigQueryExecuteQueryOperator(
-        task_id='Delete_tmp_data',
-        sql='queries/dag_afect_mrg/delete_tmp.sql',
-        allow_large_results=True,
-        use_legacy_sql=False,
-    )
-
-    sensor_task &gt;&gt; gcs_bq &gt;&gt; update_table &gt;&gt; [delete_tmp, afect_mrg_redis]
-    ventas_loaded &gt;&gt; afect_mrg_redis
-
+<h3 id="ejemplo-en-githubverlar">EJEMPLO EN GITHUB/VERLAR</h3>
+<p>El repositorio <a href="https://github.com/VERLAR/airflow-code/tree/master/batu-composer-py3">airflow_code</a> está organizado de la siguiente manera:</p>
+<pre><code>| apache_beam_code/
+| credentials/
+| python_functions/
+| queries/
+| schemas/
+| send_error_mail/
+| __init__.py
+| dag1.py
+| dag2.py
+| ...
 </code></pre>
-<h2 id="operators">OPERATORS</h2>
-<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/operators/bigquery/index.html">Link to all the operators</a></p>
-<h3 id="googlecloudstorageobjectsensor">GoogleCloudStorageObjectSensor</h3>
-<p>Fitxero bat ba ote dagoen ikusteko sensorea.</p>
-<pre><code>GoogleCloudStorageObjectSensor
-</code></pre>
-<p><a href="https://airflow.apache.org/docs/apache-airflow/1.10.3/_api/airflow/contrib/sensors/gcs_sensor/index.html">Documentación</a></p>
-<h3 id="gcstobigqueryoperator">GCSToBigQueryOperator</h3>
-<p>BigQueryra pasatzeko</p>
-<pre><code>GCSToBigQueryOperator
-</code></pre>
-<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/transfers/gcs_to_bigquery/index.html">Documentación</a></p>
-<p><code>write_disposition</code> <a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.job.WriteDisposition.html">Doc</a></p>
-<p><code>time_partitioning</code> <a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.table.TimePartitioning.html">Doc</a></p>
-<h3 id="bigqueryinsertjoboperator">BigQueryInsertJobOperator</h3>
-<p><a href="https://registry.astronomer.io/providers/google/modules/bigqueryinsertjoboperator">Doc</a></p>
-<h3 id="pythonvirtualenvoperator">PythonVirtualenvOperator</h3>
-<p>Email bidaltzeko.</p>
-<p><a href="https://registry.astronomer.io/providers/apache-airflow/modules/pythonvirtualenvoperator">Doc</a></p>
-<h3 id="bashoperator">BashOperator</h3>
-<p>Enviar comando</p>
-<h3 id="pythonoperator">PythonOperator</h3>
-<p>Para escribir código python y usar sus módulos (p.e. NumPy, Pandas)</p>
-<h3 id="emailoperator">EmailOperator</h3>
-<p>Enviar emails</p>
-<h3 id="simplehttpoperator">SimpleHttpOperator</h3>
-<p>Post, Get... </p>
-<h3 id="mysqloperator">MySqlOperator</h3>
-<h3 id="dockeroperator">DockerOperator</h3>
-<h3 id="sensores">Sensores</h3>
-<p>Si tengo un DAG que no se tiene que ejecutar por tiempo sino por evento, el sensor estará escuchando, y entonces es cuando se ejecutará el DAG.</p>
+<p>Los archivos con los DAG están en el root más alto, después tenemos las carpetas con los 
+códigos que utilizarán dichos DAGs. </p>
+<p>Ejemplo de un DAG con los eventos explicados arriba:
+<a href="https://github.com/VERLAR/airflow-code/blob/master/batu-composer-py3/dag_apro_cuma_afectacion_margen.py">github/VERLAR</a></p>
               
             </div>
           </div>
