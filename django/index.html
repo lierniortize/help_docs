@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DJANGO - Dokumentazioa</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DJANGO";
+    var mkdocs_page_input_path = "django.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dokumentazioa</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../links/">LINKS O INFORMACIÓN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../beam/">APACHE BEAM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../airflow/">AIRFLOW</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">DJANGO</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#la-primera-aplicacion-del-proyecto">La primera aplicación del proyecto</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#la-primera-view">La primera view</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modelos">Modelos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#activando-modelos">Activando modelos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#modificar-bases-de-datos">Modificar bases de datos</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#insertar-variable-en-base-de-datos">Insertar variable en base de datos</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#consultar-campos-de-esa-variable">Consultar campos de esa variable</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cambiar-valor-de-un-campo">Cambiar valor de un campo</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#ver-toda-la-base-de-datos">Ver toda la base de datos</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#django-admin">Django admin</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prophet/">PROPHET</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">REDIS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../GA/">ALGORITMO GENETICO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../simpy/">SIMPY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dokumentazioa</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>DJANGO</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="django">DJANGO</h1>
+<p><a href="https://docs.djangoproject.com/en/4.0/intro/tutorial01/">Tutorial</a></p>
+<pre><code>cd Documents\Pruebak\django
+
+django-admin startproject mysite
+</code></pre>
+<p>Esto creará un subdirectorio llamado <code>mysite</code> con la siguiente estructura:</p>
+<pre><code>mysite/
+    manage.py
+    mysite/
+        __init__.py
+        settings.py
+        urls.py
+        asgi.py
+        wsgi.py
+</code></pre>
+<p>Después podemos hacer la migración, para que las aplicaciones que están en <code>settings.py</code> puedan hacer uso de la base de datos (por defecto SQLite3).</p>
+<pre><code>py manage.py migrate
+</code></pre>
+<p>Una vez realizado esto ya podemos ejecutar</p>
+<pre><code>py manage.py runserver {PORT}
+</code></pre>
+<p>Yendo a la dirección local dada veremos una pantalla de ¡Congratulations!</p>
+<p>Primero hay que entender la diferencia entre proyecto y aplicación. Una aplicación siempre será parte de nuestro proyecto. El proyecto podrá tener varias aplicaciones. Por ejemplo el proyecto de una tienda online puede tener la aplicación de gestionar el panel de control, el del stock de almacén, el de los pagos... Y estas aplicaciones podrán ser reutilizadas en otros proyectos.</p>
+<h2 id="la-primera-aplicacion-del-proyecto">La primera aplicación del proyecto</h2>
+<p>Cada aplicación en Django consiste en un apquete de Python que se estructura de una cierta manera por convención. Para crear la primera app, colocarse en la carpeta donde está el archivo ´manage.py´ y ejecutar:</p>
+<p>Crearemos la aplicación llamada <code>polls</code></p>
+<pre><code>py manage.py startapp polls
+</code></pre>
+<p>Se creará la carpeta <code>polls</code> de la aplicación con esta estructura:</p>
+<pre><code>polls/
+     migrations/
+        __init__.py
+
+    __init__.py
+    admin.py
+    apps.py
+    models.py
+    tests.py
+    views.py
+</code></pre>
+<h2 id="la-primera-view">La primera view</h2>
+<p>En <code>polls/views.py</code>:</p>
+<pre><code>from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse(&quot;Hello, world. You're at the polls index.&quot;)
+
+</code></pre>
+<p><a href="https://docs.djangoproject.com/en/4.0/ref/request-response/">Documentación de request response</a></p>
+<p>En urls tenemos que hacer la conexión entre la página y nuestra función index.</p>
+<p>En <code>polls/urls.py</code>:</p>
+<pre><code>from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+]
+</code></pre>
+<p>En <code>mysite/urls.py</code>:</p>
+<pre><code>from django.contrib import admin
+from django.urls import include, path
+
+urlpatterns = [
+    path('polls/', include('polls.urls')),
+    path('admin/', admin.site.urls),
+]
+</code></pre>
+<p>Podemos crear un path diferente por cada vista que queramos. Es decir, podríamos crear una función nueva en <code>polls/views.py</code> y un nuevo path para ella en <code>polls/urls.py</code> y <code>mysite/urls.py</code>. </p>
+<h2 id="modelos">Modelos</h2>
+<p>La clase <code>model</code> creará tablas en nuestra base de datos y podremos modificarlos con los métodos de la clase <code>model</code>. No se puede crear un modelo que esté fuera de una aplicación.</p>
+<p>Crearemos dos modelos: Question y Choice.</p>
+<p>En <code>polls/models.py</code>:</p>
+<pre><code>from django.db import models
+
+
+class Question(models.Model):
+    question_text = models.CharField(max_length=200)
+    pub_date = models.DateTimeField('date published')
+
+
+class Choice(models.Model):
+    question = models.ForeignKey(Question, on_delete=models.CASCADE) #Each Choice is related to a single Question
+    choice_text = models.CharField(max_length=200)
+    votes = models.IntegerField(default=0)
+</code></pre>
+<p><a href="https://docs.djangoproject.com/en/4.0/topics/db/models/">Documentación</a></p>
+<p>Cada clase será una tabla y cada field será un campo de esa tabla. </p>
+<p>Con este modelo Django es capaz de:</p>
+<ul>
+<li>Crear un 'database schema' para esta app</li>
+<li>Crear una API que deja a Python acceder a Question y Choice</li>
+</ul>
+<h3 id="activando-modelos">Activando modelos</h3>
+<p>Antes de empezar debemos decirle a nuestro proyecto que la app polls ha sido instalada. Para ello en <code>mysite/settings.py</code></p>
+<pre><code>INSTALLED_APPS = [
+    'polls.apps.PollsConfig',
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
+</code></pre>
+<p>Y hacer la migración:</p>
+<pre><code>py manage.py makemigrations {NOMBRE_APLICACIÓN}
+</code></pre>
+<p>Con <code>makemigrations</code> le estamos diciendo a Django que hemos hecho algún cambio en nuestro modelo.</p>
+<p>Pero después tenemos que ejecutar el SQL que corresponde con esa migración:</p>
+<pre><code>py manage.py sqlmigrate {NOMBRE_APLICACIÓN}{NUMERO QUE NOS HA DADO MAKEMIGRATIONS}
+</code></pre>
+<p>Por último tenemos que decirle que utilice ese código SQL para modificar las tablas en la base de datos. Creará un campo <code>id</code> en cada tabla, que la usará como clave primaria. </p>
+<pre><code>py manage.py migrate
+</code></pre>
+<h3 id="modificar-bases-de-datos">Modificar bases de datos</h3>
+<pre><code>py manage.py shell
+</code></pre>
+<p>Una vez en shell:</p>
+<h5 id="insertar-variable-en-base-de-datos">Insertar variable en base de datos</h5>
+<pre><code>from django.utils import timezone
+
+
+q = Question(question_text='¿Qué hay?', pub_date=timezone.now())
+q.save()
+</code></pre>
+<h5 id="consultar-campos-de-esa-variable">Consultar campos de esa variable</h5>
+<pre><code>q.id  # 1
+q.question_text  #'Qué hay?'
+q.pub_date  #datetime.datetime(2012, 2, 26, 13, 0, 0, 775217, tzinfo=&lt;UTC&gt;)
+
+</code></pre>
+<h5 id="cambiar-valor-de-un-campo">Cambiar valor de un campo</h5>
+<pre><code>q.question_text = '¿Otra pregunta?'
+q.save()
+</code></pre>
+<h5 id="ver-toda-la-base-de-datos">Ver toda la base de datos</h5>
+<pre><code>Question.objects.all()  #&lt;QuerySet [&lt;Question: Question object (1)&gt;]&gt;
+</code></pre>
+<h2 id="django-admin">Django admin</h2>
+<pre><code>python manage.py createsuperuser
+</code></pre>
+<pre><code>Username: admin
+Email address: admin@example.com
+Password: **********
+Password (again): *********
+Superuser created successfully.
+</code></pre>
+<p>En <code>polls.admin.py</code></p>
+<pre><code>from django.contrib import admin
+
+from .models import Question
+
+admin.site.register(Question)
+</code></pre>
+<p>Ahora en <a href="http://127.0.0.1:8000/admin">http://127.0.0.1:8000/admin</a> ya podremos acceder y modificar campos.</p>
+<h2 id="templates">Templates</h2>
+<p>Nuestros documentos <code>html</code> por convención deberían estar en el directorio <code>miAplicacion/templates/miAplicacion</code></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../bigquery/" class="btn btn-neutral float-right" title="BIGQUERY">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../airflow/" class="btn btn-neutral" title="AIRFLOW"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../airflow/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../bigquery/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

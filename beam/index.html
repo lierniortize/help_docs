@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>APACHE BEAM - Dokumentazioa</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "APACHE BEAM";
+    var mkdocs_page_input_path = "beam.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dokumentazioa</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../links/">LINKS O INFORMACIÓN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">APACHE BEAM</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#iniciar">INICIAR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#conceptos-basicos">Conceptos básicos</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pipeline">Pipeline</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pcollection">PCollection</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#ptransform">PTransform</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#proceso">Proceso</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-de-un-pipeline">Ejemplo de un pipeline</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-pasado-por-asier">EJEMPLO PASADO POR ASIER</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejecutar-en-cloud">Ejecutar en cloud</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#parametros-necesarios">Parámetros necesarios:</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../airflow/">AIRFLOW</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../django/">DJANGO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prophet/">PROPHET</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">REDIS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../GA/">ALGORITMO GENETICO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../simpy/">SIMPY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dokumentazioa</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>APACHE BEAM</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="apache-beam">APACHE BEAM</h1>
+<p>Maneja y transforma datos en masivo. Utiliza máquinas externas para ello.
+Soporta batch (los datos tienen un fin) y streaming (los datos están entrando continuamente). </p>
+<p><a href="https://www.youtube.com/watch?v=xSgTsKWhU0Y">Tutorial básico</a></p>
+<h2 id="iniciar">INICIAR</h2>
+<ul>
+<li>Instalar SDK de Python Beam <a href="con este link">https://beam.apache.org/get-started/quickstart-py/</a></li>
+</ul>
+<pre><code>pip install apache-beam[gcp]
+</code></pre>
+<ul>
+<li>Escribir código en un archivo python importando <code>apahe_beam</code></li>
+<li>Se puede ejecutar en local si es pequeño, sino hay que usar alguna herramienta (nosotros usaremos dataflow)</li>
+</ul>
+<h2 id="conceptos-basicos">Conceptos básicos</h2>
+<h3 id="pipeline"><code>Pipeline</code></h3>
+<p>Un Pipeline es el proceso que queremos seguir. Esto inclue leer datos, transformarlos y escribir un output. Todos los programas de Beam tienen que crear un Pipeline. Además, habrá que especificar las opciones con las que queremos ejecutar el código y dónde queremos hacerlo (--runner).</p>
+<pre><code>--runner DirectRuner #ejecutarlo en local
+--runner DataflowRunner #ejecutarlo en cloud
+</code></pre>
+<h3 id="pcollection"><code>PCollection</code></h3>
+<p>Representa un conjunto de datos distribuido (no tiene orden). Puede ser acotada y que esté fija en un archivo o infinita dado que entran datos continuamente.</p>
+<p>Your pipeline typically creates an initial PCollection by reading data from an external data source, but you can also create a PCollection from in-memory data within your driver program. From there, PCollections are the inputs and outputs for each step in your pipeline.</p>
+<h3 id="ptransform"><code>PTransform</code></h3>
+<p>A PTransform represents a data processing operation, or a step, in your pipeline. Every PTransform takes one or more PCollection objects as input, performs a processing function that you provide on the elements of that PCollection, and produces zero or more output PCollection objects.</p>
+<h3 id="proceso">Proceso</h3>
+<p>Con el código lo q hacemos es escribir el pipeline que luego se ejecutará en una máquina (en nuestro caso Cloud Dataflow). Tembién podríamos ejecutarlo en local si la cantidad de datos es pequeña.</p>
+<h2 id="ejemplo-de-un-pipeline">Ejemplo de un pipeline</h2>
+<p>Tomará datos de una fuente (también podrían ser más), realizaremos transformaciones sobre esos datos, y los escribiremos. ETL (Extract, Transform, Load).</p>
+<p>Tomaremos el Quijote lo leeremos, contaremos las palabras y mostraremos las 5 más repetidas.</p>
+<p><code>main.py:</code></p>
+<pre><code>from typing import Tuple
+
+import apache_beam as beam
+import argparse
+
+from apache_beam import PCollection
+from apache_beam.options.pipeline_options import PipelineOptions
+
+def main():
+  parser = argparse.ArgumentParser(description=&quot;Nuestro primer pipeline&quot;)
+  parser.add_argument(&quot;--entrada&quot;, help=&quot;Fichero de entrada&quot;)
+  parser.add_argument(&quot;--salida&quot;, help=&quot;Fichero de salida&quot;)
+
+def run_pipeline(custom_args, beam_args):
+  entrada = custom_args.entrada
+  salida = custom_args.salida
+
+  opts = PipelineOptions(beam_args)
+
+  with beam.Pipeline(options=opts) as p:
+    lineas: PCollection[str] = p | &quot;Leemos entrada&quot; &gt;&gt; beam.io.ReadFromText(entrada)
+                                                        # &quot;En un lugar de La Mancha&quot; --&gt; [&quot;En&quot;, &quot;un&quot;, ...], [...], [...] --&gt; &quot;En&quot;, &quot;un&quot;, &quot;lugar&quot;, ....
+                palabras = lineas | &quot;Pasamos a palabras&quot; &gt;&gt; beam.FlatMap(lambda l: l.split())
+                contadas: PCollection[Tuple[str, int]] = limpiadas  | &quot;Contamos&quot; &gt;&gt; beam.combiners.Count.PerElement()
+                                    #&quot;En&quot; -&gt; (&quot;En&quot;, 17)
+                                    # &quot;un&quot; -&gt; (&quot;un&quot;, 28)
+                palabras_top_lista = contadas | &quot;Ranking&quot; &gt;&gt; beam.combiners.Top.Of(n_palabras, key=lambda kv: kv[1])
+                palabras_top = palabras_top_lista | &quot;Desenvuelve lista&quot; &gt;&gt; beam.FlatMap(lambda x: x)
+                 formateado: PCollection[str] = palabras_top | &quot;Formateamos&quot; &gt;&gt; beam.Map(lambda kv: &quot;%s,%d&quot; % (kv[0], kv[1]))
+                formateado | &quot;Escribimos salida&quot; &gt;&gt; beam.io.WriteToText(salida)
+
+
+if __name__ == '__main__':
+  main()
+</code></pre>
+<p>Ejecutar en local:</p>
+<pre><code>py main.py --entrada quijote.txt --salida salida.txt --runner DirectRunner 
+</code></pre>
+<h2 id="ejemplo-pasado-por-asier">EJEMPLO PASADO POR ASIER</h2>
+<p>Ejemplo básico de un pipeline:</p>
+<pre><code>import apache_beam as beam
+from apache_beam import Map
+from apache_beam.io.textio import ReadFromText, WriteToText
+from apache_beam.coders.coders import Coder
+import argparse
+class LatinCoder(Coder):
+    &quot;&quot;&quot;A coder used for reading and writing strings as Latin-1.&quot;&quot;&quot;
+    def encode(self, value):
+        return value.encode('latin-1')
+    def decode(self, value):
+        return value.decode('latin-1')
+    def is_deterministic(self):
+        return True
+def csv_to_dict(line):
+    # TODO: realizar modificaciones a cada línea
+    return line
+if __name__ == '__main__':    
+    parser = argparse.ArgumentParser()
+    # Argumentos necesarios para ejecutar el Pipeline.
+    parser.add_argument('--runner', required=True)
+    parser.add_argument('--project', required=True)
+    parser.add_argument('--region', required=True)
+    parser.add_argument('--staging_location', required=True)
+    parser.add_argument('--temp_location', required=True)
+    parser.add_argument('--network', required=True)
+    parser.add_argument('--subnetwork', required=True)
+    parser.add_argument('--job_name', required=True)
+    parser.add_argument('--input', required=True)
+    parser.add_argument('--output', required=True)
+    known_args, pipeline_args = parser.parse_known_args()
+    p = beam.Pipeline(runner=&quot;DataflowRunner&quot;, argv=[&quot;--project&quot;, known_args.project,
+                                                     &quot;--staging_location&quot;, known_args.staging_location,
+                                                     &quot;--temp_location&quot;, known_args.temp_location,
+                                                     &quot;--save_main_session&quot;, &quot;True&quot;,
+                                                     &quot;--region&quot;, known_args.region,
+                                                     &quot;--network&quot;, known_args.network,
+                                                     &quot;--subnetwork&quot;, known_args.subnetwork,
+                                                     &quot;--job_name&quot;, known_args.job_name
+                                                     ])
+    (p | 'Read' &gt;&gt; ReadFromText(file_pattern=known_args.input, skip_header_lines=1, coder=LatinCoder())
+       | 'Make Dic' &gt;&gt; Map(csv_to_dict)
+       | 'Write' &gt;&gt; # TODO: añadir código para escribir el resultado utilizando 'WriteToText'
+     )
+    p.run().wait_until_finish()
+</code></pre>
+<h2 id="ejecutar-en-cloud">Ejecutar en cloud</h2>
+<h3 id="parametros-necesarios">Parámetros necesarios:</h3>
+<p><a href="https://cloud.google.com/dataflow/docs/quickstarts/quickstart-python#run-the-pipeline-on-the-dataflow-service">Explicación de los parámetros</a></p>
+<pre><code>parser = argparse.ArgumentParser()
+
+# Argumentos necesarios para ejecutar el Pipeline.
+parser.add_argument('--runner', required=True)
+parser.add_argument('--project', required=True)
+parser.add_argument('--region', required=True)
+parser.add_argument('--staging_location', required=True)
+parser.add_argument('--temp_location', required=True)
+parser.add_argument('--network', required=True)
+parser.add_argument('--subnetwork', required=True)
+parser.add_argument('--job_name', required=True)
+parser.add_argument('--input', required=True)
+parser.add_argument('--output', required=True)
+
+known_args, pipeline_args = parser.parse_known_args()
+
+p = beam.Pipeline(runner=&quot;DataflowRunner&quot;, argv=[&quot;--project&quot;, known_args.project,
+                                                 &quot;--staging_location&quot;, known_args.staging_location,
+                                                 &quot;--temp_location&quot;, known_args.temp_location,
+                                                 &quot;--save_main_session&quot;, &quot;True&quot;,
+                                                 &quot;--region&quot;, known_args.region,
+                                                 &quot;--network&quot;, known_args.network,
+                                                 &quot;--subnetwork&quot;, known_args.subnetwork,
+                                                 &quot;--job_name&quot;, known_args.job_name
+                                                 ])
+</code></pre>
+<p>Algunos parámetros por defecto para probar:</p>
+<pre><code>STAGING_NAME = 'gs://apro-verlar/beam-test01/staging'
+TEMP_NAME = 'gs://apro-verlar/beam-test01/temp'
+REGION = 'us-central1'
+NETWORK = 'default'
+SUBNETWORK = 'regions/us-central1/subnetworks/default'
+RUNNER = 'DataflowRunner'
+DATAFLOW_PROJECT = 'liquid-alloy-178307'
+</code></pre>
+<p>Para apuntar a un fichero en storage el formato es:</p>
+<pre><code>gs://nombre del bucket/direccion donde esta el archivo en ese bucket
+</code></pre>
+<p>Ejemplo:</p>
+<pre><code>gs://apro-verlar-staging-temp/tirado_202202.csv
+</code></pre>
+<pre><code>py beam4.py --input gs://apro-verlar-staging-temp/tirado_202202.csv --output gs://apro-verlar-staging-temp/tirado_202202_copia.csv --staging_location gs://apro-verlar/beam-test01/staging --temp_location gs://apro-verlar/beam-test01/temp --region us-central1 --network default --subnetwork regions/us-central1/subnetworks/default --runner DataflowRunner --project liquid-alloy-178307
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pandas/" class="btn btn-neutral float-right" title="PANDAS">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../storage/" class="btn btn-neutral" title="STORAGE"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../storage/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../pandas/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

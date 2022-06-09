@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>AIRFLOW - Dokumentazioa</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "AIRFLOW";
+    var mkdocs_page_input_path = "airflow.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dokumentazioa</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../links/">LINKS O INFORMACIÓN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../beam/">APACHE BEAM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">AIRFLOW</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#iniciar">INICIAR</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#aplicaciones">APLICACIONES</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo">EJEMPLO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#operators">OPERATORS</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#googlecloudstorageobjectsensor">GoogleCloudStorageObjectSensor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#gcstobigqueryoperator">GCSToBigQueryOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bigqueryinsertjoboperator">BigQueryInsertJobOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pythonvirtualenvoperator">PythonVirtualenvOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#bashoperator">BashOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pythonoperator">PythonOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#emailoperator">EmailOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#simplehttpoperator">SimpleHttpOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#mysqloperator">MySqlOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#dockeroperator">DockerOperator</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#sensores">Sensores</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../django/">DJANGO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prophet/">PROPHET</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">REDIS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../GA/">ALGORITMO GENETICO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../simpy/">SIMPY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dokumentazioa</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>AIRFLOW</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="apahce-airflow">APAHCE AIRFLOW</h1>
+<p>Es una herramienta para crear, planificar y monitorizar fluos de trabajo (DAGs)</p>
+<p>Las secuencias de tareas pueden ser ejecutadas por planificación (el desarrollador especificado cuándo se ejecutara, puntual o periodicamente) o evento (ha encontrado nuevos archivo o nuevos datos, ha acabado otro proceso...)</p>
+<p>Un DAG (Gráfico Aciclico Dirigido) es un esquema que nos dice que se tiene que ejecutar cada vez. </p>
+<p>Apache airflow nos deja programar en Python, nos deja ejecutar, panificar y distribuir tareas. Además podemos monitorear, hacer loggings y lanzar alertas. Se pueden hacer pruebas unitarias. </p>
+<p>Se pueden crear plugins según tus necesidades. </p>
+<p>No tiene soporte nativo para Windows.</p>
+<h2 id="iniciar">INICIAR</h2>
+<p>Haremos el host de airflow en Google Cloud composer.</p>
+<p>Instalar airflow (cuidado con las versiones!):</p>
+<pre><code>pip install &quot;apache-airflow==2.2.3&quot; --constraint &quot;https://raw.githubusercontent.com/apache/airflow/constraints-2.2.3/constraints-3.9.txt&quot;
+
+</code></pre>
+<h2 id="aplicaciones">APLICACIONES</h2>
+<ul>
+<li>
+<p>Depósito de datos: limpieza, organización, verificación de calidad de datos...</p>
+</li>
+<li>
+<p>Machine Learning: Flujos de dato automaticos</p>
+</li>
+<li>
+<p>Growth analytics</p>
+</li>
+<li>
+<p>Search</p>
+</li>
+<li>
+<p>Data infrastructure maintenance</p>
+</li>
+</ul>
+<h2 id="ejemplo">EJEMPLO</h2>
+<p>Escuchar a que nos llegue el archivo (evento) &gt; query &gt; cargar un archivo propio &gt; computar (aplicar modelos...) &gt; subir data &gt; enviar correo de confirmación</p>
+<p>Descargar data &gt; Enviar esos datos a otro sitio para ser procesados &gt; Monitorear cuando el proceso se complete o durante &gt; Obtener resultado y generar un informe &gt; Enviar el informe por email</p>
+<p>EJEMPLO EN CÓDIGO:</p>
+<pre><code>imports
+
+options
+
+start_date
+
+default_args
+
+with DAG(...) as dag:
+    tasks
+
+En qué orden queremos que se ejecuten los tasks.
+    Para ejecutar a la vez [task1, task2]
+    Para ejecutar una detrás de otra: task1 &gt;&gt; task2
+</code></pre>
+<p>Options for schedule interval:</p>
+<pre><code>None, @once, @hourly, @daily, @weekly, @monthly, @yearly
+</code></pre>
+<p>EJEMPLO:</p>
+<pre><code># -*- coding: utf-8 -*-
+
+from airflow import models
+from airflow.providers.google.cloud.sensors.gcs import GCSObjectExistenceSensor
+from airflow.operators.python import PythonVirtualenvOperator
+from airflow.providers.google.cloud.operators.dataflow import DataflowCreatePythonJobOperator
+from airflow.providers.google.cloud.operators.bigquery import BigQueryExecuteQueryOperator
+from datetime import datetime, timedelta
+from python_functions.generic_functions.ms_teams_webhook.main import failure_ms_teams
+import pendulum
+import os
+
+from python_functions.dag_afect_mrg import afect_mrg_redis
+
+# GCS OPTIONS
+GCS_INPUT = 'gs://apro-verlar/incoming/'
+GCS_FILE_NAME = 'CONSULTA_GBI_AFECTACION_MARGEN_{date}.csv.gz'
+GCS_BUCKET = 'apro-verlar'
+GCS_FILE_DIR = 'incoming/CONSULTA_GBI_AFECTACION_MARGEN_{date}.csv.gz'
+
+# BIGQUERY OPTIONS
+TMP_PROJECT_ID = 'liquid-alloy-178307'
+TMP_TABLE_ID = 'TMP.afectacionMargen'
+MAES_LOC = 'batu-203805.GBI.maestroLocalizaciones'
+FINAL_TABLE = 'batu-203805.GBI.afectacionMargen'
+# TODO
+TABLE_VENTAS = 'batu-203805.GBI.ventasDesglosadasLocalizacionSeccion'
+
+# DATAFLOW OPTIONS
+APACHE_BEAM_PY_FILE = '/home/airflow/gcs/dags/apache_beam_code/dag_afect_mrg/gcs_to_bq.py'
+DATAFLOW_PROJECT = 'liquid-alloy-178307'
+JOB_NAME = 'afectacion-margen-{date}'
+STAGING_NAME = 'gs://apro-verlar/beam-test01/staging'
+TEMP_NAME = 'gs://apro-verlar/beam-test01/temp'
+REGION = 'us-central1'
+NETWORK = 'default'
+SUBNETWORK = 'regions/us-central1/subnetworks/default'
+RUNNER = 'DataflowRunner'
+
+START_DATE = datetime(year=2021, month=5, day=20, hour=6, minute=0, tzinfo=pendulum.timezone('Europe/Madrid'))
+
+default_args = {
+    'owner': 'Versia Procesos Operativos',
+    'start_date': START_DATE,
+    'retries': 2,
+    'retry_delay': timedelta(minutes=15),
+    'email': eval(os.environ['SEND_EMAIL_TO']),
+    'email_on_failure': True,
+    'email_on_retry': False,
+    'on_failure_callback': failure_ms_teams(author='Asier')
+}
+
+
+with models.DAG(&quot;dag_afect_mrg&quot;,
+                default_args=default_args,
+                schedule_interval='0 7 * * *') as dag:
+
+    # Load requirements for PythonVirtualenvOperator
+    with open('/home/airflow/gcs/dags/python_functions/dag_afect_mrg/requirements.txt', 'r') as fd:
+        requirements = fd.read()
+        requirements = requirements.split('\n')
+
+    sensor_task = GCSObjectExistenceSensor(
+        task_id=&quot;sensor_task&quot;,
+        bucket=GCS_BUCKET,
+        google_cloud_conn_id='google_cloud_default',
+        object=GCS_FILE_DIR.format(date=(datetime.now() - timedelta(days=1)).strftime('%Y%m%d')),
+    )
+
+    gcs_bq = DataflowCreatePythonJobOperator(
+        task_id=&quot;GCS_to_BQ&quot;,
+        py_file=APACHE_BEAM_PY_FILE,
+        options={
+            'project': TMP_PROJECT_ID,
+            'staging_location': STAGING_NAME,
+            'temp_location': TEMP_NAME,
+            'region': REGION,
+            'network': NETWORK,
+            'subnetwork': SUBNETWORK,
+            'job_name': JOB_NAME.format(date=datetime.now().strftime('%Y%m%d')),
+            'input': GCS_INPUT + GCS_FILE_NAME,
+            'output': TMP_TABLE_ID,
+            'runner': RUNNER
+        },
+        job_name=JOB_NAME.format(date=datetime.now().strftime('%Y%m%d')),
+    )
+
+    update_table = BigQueryExecuteQueryOperator(
+        task_id='Update_data',
+        sql='queries/dag_afect_mrg/update_data.sql',
+        allow_large_results=True,
+        use_legacy_sql=False,
+    )
+
+    ventas_loaded = GCSObjectExistenceSensor(
+        task_id=&quot;ventas_loaded&quot;,
+        bucket='ticket-test',
+        google_cloud_conn_id='google_cloud_default',
+        object=f'airflow_flags/tmp_airflow_dag_ventas_{datetime.now().strftime(&quot;%Y%m%d&quot;)}.txt',
+        timeout=60 * 60 * 12,
+    )
+
+    afect_mrg_redis = PythonVirtualenvOperator(
+        task_id=&quot;Afect_Mrg_Redis&quot;,
+        python_callable=afect_mrg_redis.run,
+        requirements=requirements,
+        op_kwargs={
+            'final_table': FINAL_TABLE,
+            'maes_loc': MAES_LOC,
+            'table_ventas': TABLE_VENTAS
+        },
+        system_site_packages=False,
+    )
+
+    delete_tmp = BigQueryExecuteQueryOperator(
+        task_id='Delete_tmp_data',
+        sql='queries/dag_afect_mrg/delete_tmp.sql',
+        allow_large_results=True,
+        use_legacy_sql=False,
+    )
+
+    sensor_task &gt;&gt; gcs_bq &gt;&gt; update_table &gt;&gt; [delete_tmp, afect_mrg_redis]
+    ventas_loaded &gt;&gt; afect_mrg_redis
+
+</code></pre>
+<h2 id="operators">OPERATORS</h2>
+<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/operators/bigquery/index.html">Link to all the operators</a></p>
+<h3 id="googlecloudstorageobjectsensor">GoogleCloudStorageObjectSensor</h3>
+<p>Fitxero bat ba ote dagoen ikusteko sensorea.</p>
+<pre><code>GoogleCloudStorageObjectSensor
+</code></pre>
+<p><a href="https://airflow.apache.org/docs/apache-airflow/1.10.3/_api/airflow/contrib/sensors/gcs_sensor/index.html">Documentación</a></p>
+<h3 id="gcstobigqueryoperator">GCSToBigQueryOperator</h3>
+<p>BigQueryra pasatzeko</p>
+<pre><code>GCSToBigQueryOperator
+</code></pre>
+<p><a href="https://airflow.apache.org/docs/apache-airflow-providers-google/stable/_api/airflow/providers/google/cloud/transfers/gcs_to_bigquery/index.html">Documentación</a></p>
+<p><code>write_disposition</code> <a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.job.WriteDisposition.html">Doc</a></p>
+<p><code>time_partitioning</code> <a href="https://googleapis.dev/python/bigquery/latest/generated/google.cloud.bigquery.table.TimePartitioning.html">Doc</a></p>
+<h3 id="bigqueryinsertjoboperator">BigQueryInsertJobOperator</h3>
+<p><a href="https://registry.astronomer.io/providers/google/modules/bigqueryinsertjoboperator">Doc</a></p>
+<h3 id="pythonvirtualenvoperator">PythonVirtualenvOperator</h3>
+<p>Email bidaltzeko.</p>
+<p><a href="https://registry.astronomer.io/providers/apache-airflow/modules/pythonvirtualenvoperator">Doc</a></p>
+<h3 id="bashoperator">BashOperator</h3>
+<p>Enviar comando</p>
+<h3 id="pythonoperator">PythonOperator</h3>
+<p>Para escribir código python y usar sus módulos (p.e. NumPy, Pandas)</p>
+<h3 id="emailoperator">EmailOperator</h3>
+<p>Enviar emails</p>
+<h3 id="simplehttpoperator">SimpleHttpOperator</h3>
+<p>Post, Get... </p>
+<h3 id="mysqloperator">MySqlOperator</h3>
+<h3 id="dockeroperator">DockerOperator</h3>
+<h3 id="sensores">Sensores</h3>
+<p>Si tengo un DAG que no se tiene que ejecutar por tiempo sino por evento, el sensor estará escuchando, y entonces es cuando se ejecutará el DAG.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../django/" class="btn btn-neutral float-right" title="DJANGO">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../pandas/" class="btn btn-neutral" title="PANDAS"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../pandas/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../django/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

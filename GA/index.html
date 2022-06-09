@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>ALGORITMO GENETICO - Dokumentazioa</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../css/theme.css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "ALGORITMO GENETICO";
+    var mkdocs_page_input_path = "GA.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dokumentazioa</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="..">HASIERA</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../links/">LINKS O INFORMACIÓN</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../storage/">STORAGE</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../beam/">APACHE BEAM</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../pandas/">PANDAS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../airflow/">AIRFLOW</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../django/">DJANGO</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../bigquery/">BIGQUERY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../prophet/">PROPHET</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../redis/">REDIS</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../sql/">SQL</a>
+                    </li>
+                </ul>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">ALGORITMO GENETICO</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pseudocodigo">PSEUDOCÓDIGO</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#ejemplo-con-tsp-python">EJEMPLO CON TSP (PYTHON)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#conceptos">Conceptos</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#algoritmo">Algoritmo</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#python">Python</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#paquetes">Paquetes</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#dos-clases-city-y-fitness">Dos clases: City y Fitness</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#creamos-poblacion">Creamos población</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#determinamos-aptitud">Determinamos aptitud</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#selecionamos-el-conjunto-de-cruzado">Selecionamos el conjunto de cruzado</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#cruce">Cruce</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#creacion-de-nueva-poblacion">Creación de nueva población</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#mutacion">Mutación</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#repeticion">Repetición</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#puesta-en-marcha">Puesta en marcha</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../strapi/">STRAPI</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../simpy/">SIMPY</a>
+                    </li>
+                </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../git/">GIT</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dokumentazioa</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>ALGORITMO GENETICO</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="algoritmo-genetico">ALGORITMO GENÉTICO</h1>
+<h2 id="pseudocodigo">PSEUDOCÓDIGO</h2>
+<ul>
+<li>
+<p>INICIACIÓN: Generación aleatoria de población inicial, estará constituida por un conjunto de cromosomas, los cuales representan las posibles soluciones del problema. Si no se hace aleatoriamente es importante tener diversidad. Sino se puede llegar a una convergencia prematura (un óptimo local).</p>
+</li>
+<li>
+<p>EVALUACIÓN: A cada cromosoa se le aplicará una función de aptitud para saber cómo de buena es esta solución. </p>
+</li>
+<li>
+<p>CONDICIÓN DE TÉRMINO: Dos opciones:</p>
+<ul>
+<li>Establecer un máximo de iteraciones</li>
+<li>La población no cambia de iteración a iteración</li>
+</ul>
+<p>Pasos: </p>
+<ul>
+<li>Selección. después de saber la óptima aptitud de cada cromosoma, se eligen los que cruzaremos con la siguiente generación.</li>
+<li>Cruzamiento. Se recombina.</li>
+<li>Mutación. Modificar al azar parte del cromosoma de los individuos para explora nuevas opciones. </li>
+<li>Reemplazo. Seleccionar los mejores individuos para que conformen la siguiente generación. </li>
+</ul>
+</li>
+</ul>
+<h2 id="ejemplo-con-tsp-python">EJEMPLO CON TSP (PYTHON)</h2>
+<p><a href="https://towardsdatascience.com/evolution-of-a-salesman-a-complete-genetic-algorithm-tutorial-for-python-6fe5d2b3ca35">Link al ejemplo</a></p>
+<p>Links de interés:
+<a href="http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5">Link2</a>
+<a href="https://gist.github.com/turbofart/3428880">Link3</a>
+<a href="https://gist.github.com/NicolleLouis/d4f88d5bd566298d4279bcb69934f51d">Link4</a>
+<a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Link5</a></p>
+<p>Se quiere buscar la ruta con menos distancia que pase por diferentes ciudades. Condiciones:</p>
+<ul>
+<li>Hay que pasar por todas las ciudades</li>
+<li>Hay que acabar en la ciudad donde se ha iniciado la ruta</li>
+</ul>
+<h3 id="conceptos">Conceptos</h3>
+<ul>
+<li>GEN: Una ciudad</li>
+<li>CROMOSOMA (individuo): Una ruta que cuple las condiciones</li>
+<li>POBLACIÓN: Un conjunto de cromosomas (generación)</li>
+<li>PADRES: Dos rutas que se combinan para crear una nueva</li>
+<li>CONJUNTO DE CRUZADO: Conjunto de padres que será usado para crear la siguiente población</li>
+<li>FUNCIÓN DE APTITUD: Función que nos dice cuánto de buena es una ruta (en nuestro caso cuánto de corta)</li>
+<li>MUTACIÓN: Una froma de introducir variaciones en nuestra población cambiando dos ciudades de forma aleatoria</li>
+<li>ELITISMO: Una forma de llevar los mejores cromosomas a la siguiente generación</li>
+</ul>
+<h3 id="algoritmo">Algoritmo</h3>
+<p>1) Crear población
+2) Determinar aptitud
+3) Seleccionar conjunto de cruzado
+4) Cruzar
+5) Mutación
+6) Repetir</p>
+<h3 id="python">Python</h3>
+<h4 id="paquetes">Paquetes</h4>
+<pre><code>import numpy as np, random, operator, pandas as pd, matplotlib.pyplot as plt
+
+</code></pre>
+<h4 id="dos-clases-city-y-fitness">Dos clases: City y Fitness</h4>
+<p><code>City</code>:</p>
+<pre><code>class City:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def distance(self, city):
+        xDis = abs(self.x - city.x)
+        yDis = abs(self.y - city.y)
+        distance = np.sqrt((xDis ** 2) + (yDis ** 2))
+        return distance
+
+    def __repr__(self):
+        return &quot;(&quot; + str(self.x) + &quot;,&quot; + str(self.y) + &quot;)&quot; #es solamente notación para ver más fácil las coordenadas de cada ciudad
+</code></pre>
+<p><code>Fitness</code>:</p>
+<pre><code>class Fitness:
+    def __init__(self, route):
+        self.route = route
+        self.distance = 0
+        self.fitness= 0.0
+
+    def routeDistance(self):
+        if self.distance == 0:
+            pathDistance = 0
+            for i in range(0, len(self.route)):
+                fromCity = self.route[i]
+                toCity = None
+                if i + 1 &lt; len(self.route): #Poruqe la ruta empieza y acaba en el mismo sitio, esto cuenta el último tramo
+                    toCity = self.route[i + 1]
+                else:
+                    toCity = self.route[0]
+                pathDistance += fromCity.distance(toCity)
+            self.distance = pathDistance
+        return self.distance
+
+    def routeFitness(self):
+        if self.fitness == 0:
+            self.fitness = 1 / float(self.routeDistance()) #Cuanto menor es la distancia mejor es la aptitud (mejor fitness)
+        return self.fitness
+</code></pre>
+<h4 id="creamos-poblacion">Creamos población</h4>
+<p>Creamos una ruta de forma aleatoria:</p>
+<pre><code>def createRoute(cityList):
+    route = random.sample(cityList, len(cityList))
+    return route
+</code></pre>
+<p>Como queremos una población creamos muchas rutas:</p>
+<pre><code>def initialPopulation(popSize, cityList):
+    population = []
+
+    for i in range(0, popSize):
+        population.append(createRoute(cityList))
+    return population
+</code></pre>
+<p>ESTO SÓLO SE REALIZARÁ PARA LA POBLACIÓN INICIAL. A PARTIR DE AQUÍ CREAREMOS NUEVAS GENERACIONES MEDIANTE CRUZADO Y MUTACIÓN</p>
+<h4 id="determinamos-aptitud">Determinamos aptitud</h4>
+<p>De aquí sacaremos una lista ordenada con el ID de ruta y la aptitud asociada a esta.</p>
+<pre><code>def rankRoutes(population):
+    fitnessResults = {}
+    for i in range(0,len(population)):
+        fitnessResults[i] = Fitness(population[i]).routeFitness()
+    return sorted(fitnessResults.items(), key = operator.itemgetter(1), reverse = True)
+
+</code></pre>
+<h4 id="selecionamos-el-conjunto-de-cruzado">Selecionamos el conjunto de cruzado</h4>
+<p>Tenemos dos formas diferentes para seleccionar a los padres que usaremos para crear las siguientes generaciones:</p>
+<ul>
+<li>Proporcional a la aptitud: La aptitud de cada individuo relativo a la población es usado para determinar la probabilidad de selección. Podemos llamarlo probabilidad por peso de aptitud (en el ejemplo haremos esto).</li>
+<li>Selección por campeonato: Se selecciona aleatoriamente un conjunto de individuos. Y el que mayor aptitud tenga se selecciona como el primero de los padres. Repetimos el proceso para elegir el segundo padre. </li>
+</ul>
+<p>También usaremos el elitismo. Es decir, los mejores individuos de la población pasarán automáticamente a la siguiente generación. </p>
+<p>Es decir, crearemos el conjunto de cruzado en dos pasos: </p>
+<ul>
+<li>Usaremos el output de <code>rankRoute</code> para saber cuales usamos en la siguiente función</li>
+</ul>
+<pre><code>def selection(popRanked, eliteSize):
+    selectionResults = []
+    df = pd.DataFrame(np.array(popRanked), columns=[&quot;Index&quot;,&quot;Fitness&quot;]) #Calculamos el peso relativo de la aptitud
+    df['cum_sum'] = df.Fitness.cumsum()
+    df['cum_perc'] = 100*df.cum_sum/df.Fitness.sum()
+
+    for i in range(0, eliteSize): #Mantenemos en la selección las rutas élite
+        selectionResults.append(popRanked[i][0])
+    for i in range(0, len(popRanked) - eliteSize): #Comparamos pesos relativos de aptitud de rutas aleatorias para seleccionar los mejores
+        pick = 100*random.random()
+        for i in range(0, len(popRanked)):
+            if pick &lt;= df.iat[i,3]:
+                selectionResults.append(popRanked[i][0])
+                break
+    return selectionResults #Una lista con IDs de rutas seleccionadas para crear el conjunto de cruzado
+</code></pre>
+<p>Creamos el conjunto de cruzado: </p>
+<pre><code>def matingPool(population, selectionResults):
+    matingpool = []
+    for i in range(0, len(selectionResults)):
+        index = selectionResults[i]
+        matingpool.append(population[index])
+    return matingpool
+</code></pre>
+<h4 id="cruce">Cruce</h4>
+<p>Como todas las ciudades tienen que aparecer exactamente una vez, utilizaremos una función que llamaremos <code>ordered crossover</code>. Seleccionaremos una subsecuecia de uno de los padres, y rellenaremos los huecos con el segundo en el mismo orden de aparición pero teniendo en cuenta de que no se pueden repetir.</p>
+<p>Ejemplo de <code>ordered crossover</code></p>
+<pre><code>PADRE1: 1|2|3|4|5|6|7|8|9
+PADRE2: 9|8|7|6|5|4|3|2|1
+
+Subsecuencia: ·|·|·|·|·|6|7|8|·
+
+Cruzado: 9|5|4|3|2|6|7|8|1
+                  -------
+</code></pre>
+<p>La función de cruzado:</p>
+<pre><code>def breed(parent1, parent2):
+    child = []
+    childP1 = []
+    childP2 = []
+
+    geneA = int(random.random() * len(parent1))
+    geneB = int(random.random() * len(parent1))
+
+    startGene = min(geneA, geneB)
+    endGene = max(geneA, geneB)
+
+    for i in range(startGene, endGene): #subsecuencia
+        childP1.append(parent1[i])
+
+    childP2 = [item for item in parent2 if item not in childP1] #rellenar
+
+    child = childP1 + childP2
+    return child
+</code></pre>
+<h4 id="creacion-de-nueva-poblacion">Creación de nueva población</h4>
+<pre><code>def breedPopulation(matingpool, eliteSize):
+    children = []
+    length = len(matingpool) - eliteSize
+    pool = random.sample(matingpool, len(matingpool))
+
+    for i in range(0,eliteSize): #seguimos queriendo mantener las rutas élite
+        children.append(matingpool[i])
+
+    for i in range(0, length): #usamos la función de cruzar para rellenar la generación
+        child = breed(pool[i], pool[len(matingpool)-i-1])
+        children.append(child)
+    return children
+</code></pre>
+<h4 id="mutacion">Mutación</h4>
+<p>La mutación cumple una función importante en AG, ya que ayuda a evitar la convergencia local mediante la introducción de rutas novedosas que nos permitirán explorar otras partes del espacio de solución.</p>
+<p>Utilizaremos <code>mutacion por intercambio</code>. Lo haremos de la siguiente forma: en un individuo de poca probabilidad intercambiaremos dos ciudades.</p>
+<pre><code>def mutate(individual, mutationRate):
+    for swapped in range(len(individual)):
+        if(random.random() &lt; mutationRate):
+            swapWith = int(random.random() * len(individual))
+
+            city1 = individual[swapped]
+            city2 = individual[swapWith]
+
+            individual[swapped] = city2
+            individual[swapWith] = city1
+    return individual
+</code></pre>
+<p>Añadimos esas rutas mutadas a la nueva generación:</p>
+<pre><code>def mutatePopulation(population, mutationRate):
+    mutatedPop = []
+
+    for ind in range(0, len(population)):
+        mutatedInd = mutate(population[ind], mutationRate)
+        mutatedPop.append(mutatedInd)
+    return mutatedPop
+</code></pre>
+<h4 id="repeticion">Repetición</h4>
+<p>Unimos todo en recursividad:</p>
+<pre><code>def nextGeneration(currentGen, eliteSize, mutationRate):
+    popRanked = rankRoutes(currentGen)
+    selectionResults = selection(popRanked, eliteSize)
+    matingpool = matingPool(currentGen, selectionResults)
+    children = breedPopulation(matingpool, eliteSize)
+    nextGeneration = mutatePopulation(children, mutationRate)
+    return nextGeneration
+</code></pre>
+<h4 id="puesta-en-marcha">Puesta en marcha</h4>
+<pre><code>def geneticAlgorithm(population, popSize, eliteSize, mutationRate, generations):
+    pop = initialPopulation(popSize, population)
+    print(&quot;Initial distance: &quot; + str(1 / rankRoutes(pop)[0][1]))
+
+    for i in range(0, generations):
+        pop = nextGeneration(pop, eliteSize, mutationRate)
+
+    print(&quot;Final distance: &quot; + str(1 / rankRoutes(pop)[0][1]))
+    bestRouteIndex = rankRoutes(pop)[0][0]
+    bestRoute = pop[bestRouteIndex]
+    return bestRoute
+
+</code></pre>
+<p>Creamos una lista de ciudades y ejecutamos. Hay que ver qué suposiciones funcionan mejor. En este ejemplo, tenemos 100 individuos en cada generación, mantenemos 20 individuos de élite, usamos una tasa de mutación del 1 % para un gen determinado y recorremos 500 generaciones:</p>
+<pre><code>cityList = []
+
+for i in range(0,25):
+    cityList.append(City(x=int(random.random() * 200), y=int(random.random() * 200)))
+
+geneticAlgorithm(population=cityList, popSize=100, eliteSize=20, mutationRate=0.01, generations=500)
+
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../strapi/" class="btn btn-neutral float-right" title="STRAPI">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../sql/" class="btn btn-neutral" title="SQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../sql/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../strapi/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme_extra.js" defer></script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
