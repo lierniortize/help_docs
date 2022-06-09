@@ -2,8 +2,8 @@ site_name: Dokumentazioa
 nav:
   - INICIO: index.md
   - LINKS O INFORMACIÓN: links.md
-  - AIRFLOW: airflow.md-
-    - ALGORITMO GENETICO: GA.md
+    - AIRFLOW: airflow.md
+  - ALGORITMO GENETICO: GA.md
   - APACHE BEAM: beam.md
   - BIGQUERY: bigquery.md
   - DJANGO: django.md
